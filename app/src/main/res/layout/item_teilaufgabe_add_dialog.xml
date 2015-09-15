@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_add_toolbar"
+        android:id="@+id/ibAddTeilaufgbe_Dialog"
+        android:layout_alignParentLeft="true"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_save"
+        android:layout_alignParentRight="true"
+        android:id="@+id/ibSave_Teilaufgabe_Dialog"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/teilaufgabe_add"
+        android:id="@+id/etTeilaufgabe_add_dialog"
+        android:layout_toRightOf="@id/ibAddTeilaufgbe_Dialog"
+        android:layout_toLeftOf="@id/ibSave_Teilaufgabe_Dialog"
+        android:text="@string/AddTeilaufgabe"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

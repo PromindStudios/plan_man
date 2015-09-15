@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Linear_Layout_Dialog"
+    >
+
+
+    <TextView
+        style="@style/Text_View_Dialog_Title"
+        android:text="@string/dialog_add_rubrik_title"/>
+
+    <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+        android:id="@+id/etDialog_add_Rubrik"
+        android:maxLength="@integer/LenghtEditText"
+        style="@style/Edit_Text_Dialog"
+        android:hint="@string/Eingabe_Dialog_Add_Rubrik"/>
+
+    <include
+        layout="@layout/divider_1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/ibDialog_Add_Rubrik_Clear"
+            style="@style/Image_Button_Dialog_negative"
+            android:layout_weight="1"
+
+            />
+        <ImageButton
+            android:id="@+id/ibDialog_Add_Rubrik_Save"
+            style="@style/Image_Button_Dialog_positive"
+            android:layout_weight="1"
+
+            />
+    </LinearLayout>
+</LinearLayout>

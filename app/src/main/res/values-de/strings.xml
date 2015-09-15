@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Primelist</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
+    <string name="Text_Eingabe">Bitte Text eingeben...</string>
+    <string name="add">Hinzufügen</string>
+    <string name="delete">Löschen</string>
+    <string name="what_rubrik_item_setting">Was möchten Sie mit der ausgewählten Rubrik tun?</string>
+    <string name="rubrik_change">Rubrik Namen ändern</string>
+    <string name="rubrik_takeover">Übernehmen</string>
+    <string name="NewTask_Title">Titel eingeben...</string>
+    <string name="SelectDate">Datum für Deadline</string>
+    <string name="Deadline">Deadline</string>
+    <string name="daysTillDeadline">Tage bis Deadline</string>
+    <string name="NotizHint">Notiz eingeben...</string>
+    <string name="AddTeilaufgabe">Teilaufgabe hinzufügen</string>
+    <string name="teilaufgabe_add">Neue Teilaufgabe</string>
+    <string name="Teilaufgabe_eingeben">Teilaufgabe eingeben...</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="teilaufgabe_bearbeiten_title">Titel bearbeiten</string>
+    <string name="hinzufuegen">Hinzufügen</string>
+    <string name="uebernehmen">Übernehmen</string>
+    <string name="abrechen">Abrechen</string>
+    <string name="Datum">Datum</string>
+    <string name="Days">Tage</string>
+    <string name="auswaehlen">Auswählen</string>
+    <string name="NumberPicker_Title">Tage bis Deadline</string>
+    <string name="Keine">  Keine</string>
+    <string name="fertig">Fertig</string>
+    <string name="days_left">Verbleibende Tage:</string>
+    <string name="Prioritaet">Priorität</string>
+    <string name="Prioritaet_eins">  Sehr Hoch</string>
+    <string name="Prioritaet_zwei">  Hoch</string>
+    <string name="Prioritaet_drei">  Normal</string>
+    <string name="sort">Sortieren</string>
+    <string name="title_aufgabe">Titel</string>
+    <string name="title_notiz">Notiz</string>
+    <string name="title_textaufgaben">Teilaufgaben</string>
+    <string name="no_deadline">Keine Deadline</string>
+    <string name="Aufgabenbereiche">Aufgabenbereiche</string>
+    <string name="appInfo">© Primelist</string>
+    <string name="sortiert_nach_Anzahl">Sortiert nach Anzahl der Aufgaben</string>
+    <string name="sortiert_nach_Prioritaet_rubriken">Sortiert nach Wichtigkeit</string>
+    <string name="sortiert_nach_Deadline_rubriken">Sortiert nach Dringlichkeit</string>
+    <string name="save">Speichern</string>
+    <string name="info_dialog_title">Info</string>
+    <string name="text_info">Primelist wurde von Eric und Jan entwickelt.</string>
+    <string name="Eingabe_Dialog_Edit_Rubrik">Aufgabenbereich umbenennen...</string>
+    <string name="dialog_edit_rubrik_title">Aufgabenbereich umbenennen</string>
+    <string name="dialog_add_rubrik_title">Neuer Aufgabenbereich</string>
+    <string name="Eingabe_Dialog_Add_Rubrik">Aufgabenbereich benennen...</string>
+    <string name="dialog_add_teilaufgabe_title">Neue Teilaufgabe</string>
+    <string name="Eingabe_Dialog_Add_Teilaufgabe">Teilaufgabe benennen...</string>
+    <string name="dialog_edit_teilaufgabe_title">Teilaufgabe umbenennen</string>
+    <string name="Eingabe_Dialog_Edit_Teilaufgabe">Neuen Namen eingeben...</string>
+
+    <string name="Toast_sortieren_Prioritaet">Sortiert nach Wichtigkeit</string>
+    <string name="Toast_sortieren_Deadline">Sortiert nach Dringlichkeit</string>
+    <string name="dialog_delete_aufgabe">Aufgabe löschen</string>
+    <string name="dialog_delete_aufgabe_text">Diese Aufgabe unwiderruflich löschen?</string>
+    <string name="dialog_check_aufgabe">Aufgabe erledigt?</string>
+    <string name="dialog_check_aufgabe_text">Ist diese Aufgabe erledigt und soll unwiderruflich gelöscht werden?</string>
+    <string name="dialog_delete_rubrik">Aufgabenbereich löschen</string>
+    <string name="dialog_delete_rubrik_text">Diesen Aufgabenbereich einschließlich aller zugehörigen Aufgaben unwiderruflich löschen?</string>
+    <string name="dialog_numberpicker_title">Tage bis zur Deadline</string>
+    <string name="rbDays_Days">Tage</string>
+    <string name="rbDate_Date">Datum</string>
+    <string name="select_Category">Aufgabenbereich wählen</string>
+    <string name="Please_select_category">Bitte Aufgabenbereich auswählen</string>
+    <string name="title_datepicker">Deadline (Datum)</string>
+    <string name="Task">Aufgabe</string>
+    <string name="Tasks">Aufgaben</string>
+    <string name="overview">Übersicht</string>
+    <string name="move_up">Nach oben verschieben</string>
+    <string name="move_down">Nach unten verschieben</string>
+    <string name="NoDueTasksToday">Heute sind keine Aufgaben fällig</string>
+    <string name="Notification_Title_Due_Tasks">Heute fällige Aufgaben:</string>
+    <string name="Notification_Title">Primelist</string>
+    <string name="dueTask_one">fällige Aufgabe</string>
+    <string name="dueTask_more_than_one">fälllige Aufgaben</string>
+    <string name="dueTask_none">Keine fälligen Aufgaben</string>
+    <string name="Notification_Deactivated">Push-Nachrichten deaktiviert (Für nähere Informationen Icon gedrückt halten)</string>
+    <string name="Notification_Activated">Push-Nachrichten aktiviert (Für nähere Informationen Icon gedrückt halten)</string>
+    <string name="Dialog_Info_Titlxe">Push-Nachrichten</string>
+    <string name="Dialog_Info_Content">Wenn du die Funktion Push-Nachrichten aktivierst, erhälst du zu Beginn eines jeden Tages eine Push-Nachricht, die eine Liste der fälligen Aufgaben enthält.</string>
+
+
+</resources>

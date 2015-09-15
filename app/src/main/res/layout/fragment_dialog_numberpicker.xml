@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    style="@style/Linear_Layout_Dialog"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <TextView
+        style="@style/Text_View_Dialog_Title"
+        android:text="@string/dialog_numberpicker_title"/>
+
+    <NumberPicker
+        android:id="@+id/nbDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_gravity="center"
+        android:layout_margin="32dp"
+        android:theme="@style/MyNumberPicker"/>
+
+    <include
+        layout="@layout/divider_1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/ibDialog_Numberpicker_Clear"
+            style="@style/Image_Button_Dialog_negative"
+            android:layout_weight="1"
+
+            />
+
+        <ImageButton
+            android:id="@+id/ibDialog_Numberpicker_Save"
+            style="@style/Image_Button_Dialog_positive"
+            android:layout_weight="1"
+
+            />
+    </LinearLayout>
+</LinearLayout>
+
+

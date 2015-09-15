@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#EEE"
+                tools:context="com.ericschumacher.eu.provelopment.android.localz.Fragments.NavagationDrawer">
+
+
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@color/colorPrimary_Primelist">
+
+        <TextView
+            android:id="@+id/tvTitleHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Aufgabenbereiche"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_huge"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:id="@+id/ibSort_Rubriken"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_sort"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:id="@+id/ibOverview"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_script"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:id="@+id/ibNotification"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_bell"/>
+
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/rvRubrikliste"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlHeader"
+        android:layout_above="@id/rlAppInfo_">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/rlAppInfo_"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryLight_Primelist">
+
+        <ImageButton
+            android:id="@+id/ibAppInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_info"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/appInfo"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_small"/>
+
+    </RelativeLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAddRubrik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/ic_add"
+        app:borderWidth="0dp"/>
+
+
+</RelativeLayout>
+
+    <!--
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llHeader"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/heightHeader_element"
+                    android:layout_weight="3"
+                    android:background="@drawable/rounded_corner_red"
+                    android:text="Planer Pro"
+                    style="@style/Space_between_elements"
+                    android:gravity="center"
+                    android:textSize="@dimen/textSize_huge"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/white"
+                    />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/heightHeader_element"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_orange"
+                    android:layout_gravity="center"
+                    style="@style/Space_between_elements"
+                    android:src="@drawable/ic_info"
+                    android:layout_marginRight="8dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/heightHeader_element"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_corner_light_green"
+                    android:layout_gravity="center"
+                    style="@style/Space_between_elements"
+                    android:src="@drawable/ic_sort"
+                    android:layout_marginLeft="8dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/heightHeader_element"
+                    android:layout_weight="3"
+                    android:background="@drawable/rounded_corner_green"
+                    android:text="Aufgabenbereiche"
+                    style="@style/Space_between_elements"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:textSize="@dimen/textSize_huge"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        -->

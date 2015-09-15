@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height">
+
+    <CheckBox
+        android:id="@+id/cbTeilaufgabe_Done_Dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:buttonTint="@color/colorPrimary"/>
+
+
+
+    <EditText
+        android:id="@+id/tvTeilaufgabeTitle_Dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/cbTeilaufgabe_Done_Dialog"
+        android:textColor="@color/white"/>
+
+
+</RelativeLayout>

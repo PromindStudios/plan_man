@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Primelist</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
+    <string name="Text_Eingabe">Bitte Text eingeben...</string>
+    <string name="add">Adicionar</string>
+    <string name="delete">Cancelar</string>
+    <string name="what_rubrik_item_setting">Qué quieres de hacer con la categoría seleccionada?</string>
+    <string name="rubrik_change">Categoría Nombre cambiar</string>
+    <string name="rubrik_takeover">Llevar</string>
+    <string name="NewTask_Title">Insertar título...</string>
+    <string name="SelectDate">Fecha de ultimato</string>
+    <string name="Deadline">Ultimato</string>
+    <string name="daysTillDeadline">Días de ultimato</string>
+    <string name="NotizHint">Insertar nota...</string>
+    <string name="AddTeilaufgabe">Añadir subtarea</string>
+    <string name="teilaufgabe_add">Nueva subtarea</string>
+    <string name="Teilaufgabe_eingeben">Insertar subtarea...</string>
+    <string name="edit">Editar</string>
+    <string name="teilaufgabe_bearbeiten_title">Editar título</string>
+    <string name="hinzufuegen">Adicionar</string>
+    <string name="uebernehmen">Hacerse</string>
+    <string name="abrechen">Cancelar</string>
+    <string name="Datum">Fecha</string>
+    <string name="Days">Días</string>
+    <string name="auswaehlen">Seleccionar</string>
+    <string name="NumberPicker_Title">Días de ultimato</string>
+    <string name="Keine">Ninguno</string>
+    <string name="fertig">acabado</string>
+    <string name="days_left">Días restantes:</string>
+    <string name="Prioritaet">Prioridad</string>
+    <string name="Prioritaet_eins">  Muy Supremo</string>
+    <string name="Prioritaet_zwei">  Supremo</string>
+    <string name="Prioritaet_drei">  Normal</string>
+    <string name="sort">Clasificar</string>
+    <string name="title_aufgabe">Título</string>
+    <string name="title_notiz">nota</string>
+    <string name="title_textaufgaben">Subtareas</string>
+    <string name="no_deadline">Sin ultimato</string>
+    <string name="Aufgabenbereiche">Campos de actividades</string>
+    <string name="appInfo">© Primelist</string>
+    <string name="sortiert_nach_Anzahl"> Ordenar por número de tareas</string>
+    <string name="sortiert_nach_Prioritaet_rubriken"> Ordenar por prioridad</string>
+    <string name="sortiert_nach_Deadline_rubriken"> Ordenar por urgencia</string>
+    <string name="save">Memorizar</string>
+    <string name="info_dialog_title">Info</string>
+    <string name="text_info"> Esta aplicación fue desarrollada por Eric y Jan.</string>
+    <string name="Eingabe_Dialog_Edit_Rubrik">Insertar el nuevo nombre de título...</string>
+    <string name="dialog_edit_rubrik_title"> Rebautizar campo de actividades</string>
+    <string name="dialog_add_rubrik_title">Nuevo campo de actividades</string>
+    <string name="Eingabe_Dialog_Add_Rubrik">Designado campo de actividades...</string>
+    <string name="dialog_add_teilaufgabe_title">Nueva subtarea</string>
+    <string name="Eingabe_Dialog_Add_Teilaufgabe">Designado subtarea...</string>
+    <string name="dialog_edit_teilaufgabe_title">Rebautizar subtarea</string>
+    <string name="Eingabe_Dialog_Edit_Teilaufgabe">Insertar nuevo Nombre...</string>
+
+    <string name="Toast_sortieren_Prioritaet">Ordenar por prioridad</string>
+    <string name="Toast_sortieren_Deadline">Ordenar por ultimato</string>
+    <string name="dialog_delete_aufgabe">Eliminar tarea</string>
+    <string name="dialog_delete_aufgabe_text">Eliminar tarea irrevocablemente?</string>
+    <string name="dialog_check_aufgabe">Misión cumplida?</string>
+    <string name="dialog_check_aufgabe_text">Esta tarea se ha completado y se eliminará de forma permanente.</string>
+    <string name="dialog_delete_rubrik">Eliminar campo de actividades?</string>
+    <string name="dialog_delete_rubrik_text">Eliminar mandato incluyendo todas las tareas relacionadas irrevocablemente?</string>
+    <string name="dialog_numberpicker_title">Ultimato (Días)</string>
+    <string name="rbDays_Days">Días</string>
+    <string name="rbDate_Date">Fecha</string>
+    <string name="select_Category">Campo de actividades seleccionar</string>
+    <string name="Please_select_category">Seleccionar sección por favor</string>
+    <string name="title_datepicker">Ultimato (Días)</string>
+    <string name="Task">Tarea</string>
+    <string name="Tasks">Tareas</string>
+
+    <!-- Noch zu übersetzen -->
+    <string name="overview">Overview</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
+    <string name="NoDueTasksToday">No due tasks today</string>
+    <string name="Notification_Title_Due_Tasks">Due tasks today:</string>
+    <string name="Notification_Title">Primelist</string>
+    <string name="dueTask_one">due Task</string>
+    <string name="dueTask_more_than_one">due tasks</string>
+    <string name="dueTask_none">No due tasks today</string>
+    <string name="Notification_Deactivated">Notifications deactivated (For more information keep the notification icon pushed)</string>
+    <string name="Notification_Activated">Notifications activated (For more information keep the notification icon pushed)</string>
+    <string name="Dialog_Info_Titlxe">Notifications</string>
+    <string name="Dialog_Info_Content">If you activate the notification tool, you will receive at the beginning of every day a notification with a list of due tasks.</string>
+
+
+</resources>

@@ -1,0 +1,168 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorHighLight</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="actionMenuTextColor">@color/colorDivider</item>
+        <item name="android:colorForeground">@android:color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+
+
+    </style>
+
+    <style name="MyNumberPicker" parent="Theme.AppCompat.Light"/>
+
+    <style name="MyCustomToolBarTheme" parent="AppTheme.Base">
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#FFFFFF</item>
+        <item name="android:textColorPrimaryInverse">#FFFFFF</item>
+        <item name="actionMenuTextColor">#FFFFFF</item>
+    </style>
+
+
+    <style name="AufgabeErstellen_Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:textSize">@dimen/textSize_big</item>
+        <item name="android:layout_marginBottom">@dimen/absatz_2</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="AufgabeErstellen_EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:textColorHint">@color/colorDivider</item>
+        <item name="android:focusable">true</item>
+        <item name="android:inputType">textCapSentences|textMultiLine</item>
+        <item name="android:minLines">1</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+
+    <style name="Teilaufgaben_TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">@dimen/teilaufgabe_titel_abstand</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+    </style>
+
+    <style name="AufgabeErstellen_RadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingRight">@dimen/absatz_3</item>
+        <item name="android:buttonStyle">@drawable/radio_button_aufgabe_erstellen</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+    </style>
+
+    <style name="Divider_Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="Space_between_elements">
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="Linear_Layout_Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="Text_View_Dialog_Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textSize_big</item>
+        <item name="android:background">@drawable/rounded_corner_green</item>
+    </style>
+
+    <style name="Edit_Text_Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textColorHint">@color/colorDivider</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:inputType">textCapSentences|textMultiLine</item>
+        <item name="android:minLines">1</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+
+    <style name="Text_View_Dialog">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+    </style>
+
+    <style name="Image_Button_Dialog_positive">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:src">@drawable/ic_save</item>
+        <item name="android:tint">@color/colorGreen</item>
+    </style>
+
+    <style name="Image_Button_Dialog_negative">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:src">@drawable/ic_clear</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:tint">@color/Importance_one</item>
+    </style>
+
+    <style name="Image_Button_Dialog_add">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:src">@drawable/ic_add_toolbar</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:tint">@color/Importance_two</item>
+    </style>
+
+
+</resources>

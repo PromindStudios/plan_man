@@ -1,0 +1,113 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="7dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/flActivityMain">
+
+
+        </RelativeLayout>
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/fragment_navigation_drawer"
+            android:name="com.ericschumacher.eu.provelopment.android.planman.Fragments.RubrikListe"
+            android:layout_width="320dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:layout="@layout/fragment_rubrikliste"
+            tools:layout="@layout/fragment_rubrikliste"/>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</FrameLayout>
+
+
+<!-- Design for Aufgabenliste. Used to be inside the DrawerLayout on the first place.
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llTopBars"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/tool_bar"
+                    layout="@layout/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+
+                <android.support.v7.widget.RecyclerView
+
+                    android:id="@+id/rvAufgabenliste"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+
+                </android.support.v7.widget.RecyclerView>
+
+                <RelativeLayout
+                    android:id="@+id/rlAppInfo_"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorPrimaryLight">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/appInfo"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textSize_small"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabAddAufgabe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_add"
+                app:borderWidth="0dp"/>
+
+                </FrameLayout>
+
+-->

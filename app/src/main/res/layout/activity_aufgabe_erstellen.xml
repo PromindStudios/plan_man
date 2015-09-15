@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:id="@+id/svAufgabeErstellen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical"
+                android:padding="@dimen/standard_padding_edges">
+
+                <TextView
+                    android:id="@+id/tvTitle_aufgabe"
+                    style="@style/AufgabeErstellen_Title"
+                    android:text="@string/title_aufgabe"
+                    />
+
+                <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+                    android:id="@+id/etTitel"
+                    style="@style/AufgabeErstellen_EditText"
+                    android:background="@color/transparent"
+                    android:hint="@string/NewTask_Title"
+                    />
+
+                <include
+                    style="@style/Divider_Horizontal"
+                    layout="@layout/divider"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTitle_notiz"
+                    style="@style/AufgabeErstellen_Title"
+                    android:text="@string/title_notiz"/>
+
+                <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+                    android:id="@+id/etNotiz"
+                    style="@style/AufgabeErstellen_EditText"
+                    android:background="@color/transparent"
+                    android:hint="@string/NotizHint"
+                    android:imeActionLabel="Done"
+                    android:lines="10"
+                    android:scrollHorizontally="false"/>
+
+                <include
+                    style="@style/Divider_Horizontal"
+                    layout="@layout/divider"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTitle_teilaufgaben"
+                    style="@style/AufgabeErstellen_Title"
+                    android:text="@string/title_textaufgaben"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvTeilaufgaben"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <include
+                    style="@style/Divider_Horizontal"
+                    layout="@layout/divider"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tvDeadline"
+                    style="@style/AufgabeErstellen_Title"
+                    android:text="@string/Deadline"/>
+
+
+                <RadioGroup
+                    android:id="@+id/rgDeadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbDatum"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="@string/Datum"/>
+
+                    <RadioButton
+                        android:id="@+id/rbDays"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="@string/Days"/>
+
+                    <RadioButton
+                        android:id="@+id/rbKeine"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="  Keine"
+                        />
+
+                </RadioGroup>
+
+                <include
+                    style="@style/Divider_Horizontal"
+                    layout="@layout/divider"
+                    />
+
+                <TextView
+                    android:id="@+id/tvPrioritaet"
+                    style="@style/AufgabeErstellen_Title"
+                    android:text="@string/Prioritaet"/>
+
+
+                <RadioGroup
+                    android:id="@+id/rgPrioritaet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rbPrioritaet_eins"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="  Hoch"/>
+
+
+                    <RadioButton
+                        android:id="@+id/rbPrioritaet_zwei"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="  Hoch"/>
+
+                    <RadioButton
+                        android:id="@+id/rbPrioritaet_drei"
+                        style="@style/AufgabeErstellen_RadioButton"
+                        android:button="@drawable/abc_btn_radio_material"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="  Normal"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

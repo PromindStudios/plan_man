@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:paddingLeft="@dimen/standard_padding_edges"
+        android:paddingRight="@dimen/standard_padding_edges">
+
+        <ImageButton
+            android:id="@+id/ibDeadline_Indicator_Rubrik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_deadline_no"/>
+
+        <TextView
+            android:id="@+id/tvDeadlineDays_Rubrik"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/ibDeadline_Indicator_Rubrik"
+            android:textSize="@dimen/textSize_micro"
+            android:textColor="@color/Importance_one"
+            android:layout_alignBottom="@id/ibDeadline_Indicator_Rubrik"
+            android:text="12"/>
+
+        <ImageButton
+            android:id="@+id/ibPrioritaet_Rubrik"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/absatz_2"
+            android:layout_toLeftOf="@id/ibDeadline_Indicator_Rubrik"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_prioritaet_eins"/>
+
+
+        <LinearLayout
+            android:id="@+id/llRubrik_Titel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/ibPrioritaet"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvRubrikTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/absatz_2"
+                android:paddingLeft="@dimen/teilaufgabe_titel_abstand"
+                android:text="Meine Aufgabe"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/textSize_big"/>
+
+            <TextView
+                android:id="@+id/tvRubrik_Aufgaben_Anzahl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvRubrikTitle"
+                android:paddingLeft="@dimen/teilaufgabe_titel_abstand"
+                android:text="Meine Aufgabe"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/textSize_medium"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/statusBar_grey"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorDivider"
+        />
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorBackground"
+        />
+
+    <View
+        android:layout_width="16dp"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/colorBackground"
+        />
+
+</RelativeLayout>

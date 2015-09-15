@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    style="@style/Linear_Layout_Dialog"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        style="@style/Text_View_Dialog_Title"
+        android:text="@string/dialog_edit_teilaufgabe_title"/>
+
+    <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+        android:id="@+id/etDialog_Edit_Teilaufgabe"
+        style="@style/Edit_Text_Dialog"
+        android:hint="@string/Eingabe_Dialog_Edit_Teilaufgabe"/>
+
+    <include
+        layout="@layout/divider_1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/ibDialog_Edit_Teilaufgabe_Clear"
+            style="@style/Image_Button_Dialog_negative"
+            android:layout_weight="1"
+
+            />
+        <ImageButton
+            android:id="@+id/ibDialog_Edit_Teilaufgabe_Save"
+            style="@style/Image_Button_Dialog_positive"
+            android:layout_weight="1"
+
+            />
+    </LinearLayout>
+</LinearLayout>

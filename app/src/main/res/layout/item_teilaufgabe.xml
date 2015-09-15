@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rlTeilaufgabenContainer"
+                android:paddingTop="8dp">
+
+    <CheckBox
+        android:id="@+id/cbDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:button="@drawable/abc_btn_check_material"
+        android:buttonTint="@color/colorPrimary"/>
+
+<!--
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/ibTeilaufgabePrioritaet"
+        android:src="@drawable/ic_prioritaet_grau"
+        android:layout_alignParentRight="true"
+        android:tint="@color/colorDivider"
+        android:background="@color/transparent"/>
+        -->
+
+    <TextView
+        android:id="@+id/tvTeilaufgabeTitle"
+        android:layout_width="match_parent"
+        android:text="Testtext"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/cbDone"
+        style="@style/Teilaufgaben_TextView"/>
+
+
+
+</RelativeLayout>

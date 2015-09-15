@@ -1,0 +1,23 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="standard_padding_edges">16dp</dimen>
+    <dimen name="absatz_01">4dp</dimen>
+    <dimen name="absatz_2">8dp</dimen>
+    <dimen name="absatz_3">16dp</dimen>
+    <dimen name="absatz_4">32dp</dimen>
+    <dimen name="textSize_micro">10sp</dimen>
+    <dimen name="textSize_small">12sp</dimen>
+    <dimen name="textSize_medium">15sp</dimen>
+    <dimen name="textSize_big">18sp</dimen>
+    <dimen name="textSize_huge">24sp</dimen>
+    <dimen name="item_height">75dp</dimen>
+    <dimen name="teilaufgabe_height">40dp</dimen>
+    <dimen name="teilaufgabe_titel_abstand">8dp</dimen>
+    <dimen name="statusBar_height">1px</dimen>
+    <dimen name="heightHeader_element">80dp</dimen>
+    <dimen name="widthHeader_big_element">240dp</dimen>
+    <dimen name="widthHeader_small_element">80dp</dimen>
+    <integer name="LenghtEditText">20</integer>
+</resources>

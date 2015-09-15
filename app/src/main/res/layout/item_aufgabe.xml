@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/item_height">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <RelativeLayout
+                android:id="@+id/rlPrioritaet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+                <CheckBox
+                    android:id="@+id/cbCheckAufgabe_grün"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@drawable/abc_btn_check_material"
+                    android:buttonTint="@color/colorPrimary"
+                    android:gravity="center_vertical"/>
+
+                <CheckBox
+                    android:id="@+id/cbCheckAufgabe_deaktiviert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:button="@drawable/abc_btn_check_material"
+                    android:buttonTint="@color/colorPrimaryLight"
+                    android:gravity="center_vertical"/>
+
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/ibDeadline_Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:src="@drawable/ic_deadline_no"/>
+
+            <TextView
+                android:id="@+id/tvDeadlineDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/ibDeadline_Indicator"
+                android:layout_alignRight="@id/ibDeadline_Indicator"
+                android:text="12"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/textSize_micro"/>
+
+            <ImageButton
+                android:id="@+id/ibPrioritaet"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/absatz_2"
+                android:layout_toLeftOf="@id/ibDeadline_Indicator"
+                android:background="@color/transparent"
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_prioritaet_eins"/>
+
+            <TextView
+                android:id="@+id/tvAufgabenTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/ibPrioritaet"
+                android:layout_toRightOf="@id/rlPrioritaet"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/teilaufgabe_titel_abstand"
+                android:text="Meine Aufgabe"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/textSize_medium"/>
+
+            <LinearLayout
+                android:id="@+id/llAufgabe_Notiz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/ibPrioritaet"
+                android:layout_toRightOf="@id/rlPrioritaet"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvAufgabenTitle_mit_Notiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/ibPrioritaet"
+                    android:layout_toRightOf="@id/rlPrioritaet"
+                    android:paddingBottom="@dimen/absatz_2"
+                    android:paddingLeft="@dimen/teilaufgabe_titel_abstand"
+                    android:text="Meine Aufgabe"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/textSize_medium"/>
+
+                <TextView
+                    android:id="@+id/tvAufgabenNotiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvAufgabenTitle"
+                    android:layout_toLeftOf="@id/ibPrioritaet"
+                    android:layout_toRightOf="@id/rlPrioritaet"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/teilaufgabe_titel_abstand"
+                    android:text="Meine Aufgabe"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/textSize_small"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/statusBar_done"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/statusBar_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/colorPrimaryDark_Primelist"
+            />
+
+        <View
+            android:id="@+id/statusBar_grey"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/statusBar_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorPrimaryLight_Primelist"
+            />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="@dimen/statusBar_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/white"
+            />
+
+        <View
+            android:layout_width="16dp"
+            android:layout_height="@dimen/statusBar_height"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/white"
+            />
+
+
+</RelativeLayout>
+
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_height">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/rlPrioritaet">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/cbCheckAufgabe_eins"
+                android:buttonTint="@color/Importance_one"
+                android:gravity="center_vertical"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/cbCheckAufgabe_zwei"
+                android:buttonTint="@color/Importance_two"
+                android:gravity="center_vertical"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/cbCheckAufgabe_grau"
+                android:buttonTint="@color/colorSecondaryText"
+                android:gravity="center_vertical"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/cbCheckAufgabe_deaktiviert"
+                android:buttonTint="@color/colorDivider"
+                android:gravity="center_vertical"/>
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/ibPrioritaet"
+            android:src="@drawable/ic_prioritaet_zwei"
+            android:layout_toLeftOf="@id/rlPrioritaet"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"/>
+
+
+        <ImageButton
+            android:id="@+id/ibDeadline_Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_deadline_no"/>
+
+        <TextView
+            android:id="@+id/tvAufgabenTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/ibPrioritaet"
+            android:layout_toRightOf="@id/ibDeadline_Indicator"
+            android:gravity="center_vertical"
+            android:text="Meine Aufgabe"
+            android:textColor="@color/colorPrimaryText"/>
+
+
+        <View
+            android:id="@+id/statusBar_done"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimaryDark"
+            />
+
+        <View
+            android:id="@+id/statusBar_grey"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorDivider"
+            />
+        <View
+            android:layout_width="16dp"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@color/white"
+            />
+        <View
+            android:layout_width="16dp"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@color/white"
+            />
+
+
+
+        </RelativeLayout>
+
+        -->
