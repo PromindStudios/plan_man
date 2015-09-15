@@ -116,6 +116,7 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
         rvTeilaufgaben.setLayoutManager(new com.ericschumacher.eu.provelopment.android.planman.HelperClasses.LinearLayoutManager(this, LinearLayout.VERTICAL, false));
 
 
+        // test
         /*
         Resources r = getResources();
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, r.getDisplayMetrics());
