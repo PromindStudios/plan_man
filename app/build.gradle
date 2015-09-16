@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 22
@@ -28,4 +29,5 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile 'org.solovyev.android.views:linear-layout-manager:0.5@aar'
     compile 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.7.4'
+    compile 'com.google.android.gms:play-services-analytics:7.3.0'
 }

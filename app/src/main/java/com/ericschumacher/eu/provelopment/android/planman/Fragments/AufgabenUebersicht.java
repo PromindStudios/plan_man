@@ -28,11 +28,14 @@ import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Adapter_Aufga
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Aufgabe_Check;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AlarmReceiver;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AnalyticsApplication;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Sorter;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -56,6 +59,17 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
 
     // Listener
     private Main mListener;
+
+    // Analytics
+    Tracker mTracker;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getActivity().getApplication();
+        mTracker = application.getDefaultTracker();
+    }
 
     @Nullable
     @Override
@@ -115,6 +129,9 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
         loadRecyclerView();
         mListener.setToolbarTitle_Uebersicht(getActivity().getString(R.string.overview), mAufgaben.size());
         mListener.onUpdate();
+
+        mTracker.setScreenName("Image~" + "AufgabenUebersicht");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
 

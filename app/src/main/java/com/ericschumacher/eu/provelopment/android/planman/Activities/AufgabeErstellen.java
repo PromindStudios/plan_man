@@ -31,6 +31,7 @@ import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_DatePic
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_NumberPicker;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Teilaufgabe_Add;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Teilaufgabe_Edit;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AnalyticsApplication;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.DragSortRecycler;
 import com.ericschumacher.eu.provelopment.android.planman.R;
@@ -38,6 +39,8 @@ import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
 import com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben.Teilaufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben.TeilaufgabenAdapter;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -70,6 +73,9 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
     FloatingActionButton fabSave;
     TextView tvTitleAufgabe;
     ScrollView svScrollView;
+
+    // Analytics
+    Tracker mTracker;
 
     private int mPrioritaet;
     private Aufgabe mAufgabe;
@@ -291,6 +297,10 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
         );
 
 
+        // set up Analytics
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     @Override
@@ -310,6 +320,10 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
             svScrollView.smoothScrollTo(0, 0);
 
         }
+
+        // Set up name for Analytics
+        mTracker.setScreenName("Image~" + "AufgabeErstellen");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
     }
 

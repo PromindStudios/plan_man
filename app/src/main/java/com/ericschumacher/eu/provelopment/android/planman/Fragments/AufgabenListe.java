@@ -25,11 +25,14 @@ import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Adapter_AufgabenListe;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Aufgabe_Check;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AnalyticsApplication;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -61,6 +64,17 @@ public class AufgabenListe extends Fragment implements Adapter_AufgabenListe.Auf
     // Listener
     AufgabenListe_Listener mListener;
 
+    // Analytics
+    Tracker mTracker;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getActivity().getApplication();
+        mTracker = application.getDefaultTracker();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,6 +104,12 @@ public class AufgabenListe extends Fragment implements Adapter_AufgabenListe.Auf
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("AufgabenListe")
+                        .setAction("Taks added")
+                        .build());
+
                 Aufgabe aufgabe = new Aufgabe(mRubrik.getTitle());
                 mRubrik.addAufgabe(aufgabe);
                 Intent i = new Intent(getActivity(), AufgabeErstellen.class);
@@ -132,6 +152,9 @@ public class AufgabenListe extends Fragment implements Adapter_AufgabenListe.Auf
         loadRecyclerView();
         mListener.onSetToolbarTitle(mRubrik.getTitle(), mAufgaben.size());
         mListener.onUpdate();
+
+        mTracker.setScreenName("Image~" + "AufgabenListe");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
     }
 
