@@ -1,14 +1,9 @@
 package com.ericschumacher.eu.provelopment.android.planman.Rubriken;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AlarmReceiver;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
 
 import java.util.ArrayList;
 import java.util.Calendar;

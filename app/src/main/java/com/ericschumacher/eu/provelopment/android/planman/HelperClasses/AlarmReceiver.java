@@ -7,22 +7,16 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.media.RingtoneManager;
-import android.provider.SyncStateContract;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.NotificationCompat;
-import android.text.format.Time;
-import android.util.Log;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
-import com.ericschumacher.eu.provelopment.android.planman.Services.PushNotifications;
 
 import java.util.ArrayList;
-import java.util.logging.FileHandler;
 
 /**
  * Created by eric on 05.09.2015.
@@ -46,7 +40,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 
         String action = intent.getAction();
-        if (Constans.EXTRA_ALARM_NUMBER_ONE.equals(action)) {
+        if (Constants.EXTRA_ALARM_NUMBER_ONE.equals(action)) {
 
             mDueTasks_Array = getDueTasks_Array();
             mInboxStyle = new NotificationCompat.InboxStyle();
@@ -74,7 +68,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 
             Intent resultIntent = new Intent(context, Main.class);
-            resultIntent.putExtra(Constans.NOTIFACTION_INTENT, true);
+            resultIntent.putExtra(Constants.NOTIFACTION_INTENT, true);
 
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
             // Adds the back stack for the Intent (but not the Intent itself)

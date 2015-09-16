@@ -9,7 +9,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -32,8 +31,7 @@ import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_NumberP
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Teilaufgabe_Add;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Teilaufgabe_Edit;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AnalyticsApplication;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.DragSortRecycler;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
@@ -106,8 +104,8 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
         setContentView(R.layout.activity_aufgabe_erstellen);
         initialize();
         setSupportActionBar(mToolbar);
-        aufgabeId = (UUID) getIntent().getSerializableExtra(Constans.ID_AUFGABE);
-        rubrikId = (UUID) getIntent().getSerializableExtra(Constans.ID_RUBRIK);
+        aufgabeId = (UUID) getIntent().getSerializableExtra(Constants.ID_AUFGABE);
+        rubrikId = (UUID) getIntent().getSerializableExtra(Constants.ID_RUBRIK);
         mRubrik = RubrikLab.get(this).getRubrik(rubrikId);
         mAufgabe = mRubrik.getAufgabe(aufgabeId);
         mTeilaufgaben = mAufgabe.getTeilaufgabenArrayList(this);
@@ -191,15 +189,21 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
             public void onClick(View v) {
                 if (mAufgabe.getDeadline() != null) {
                     Bundle bundle = new Bundle();
-                    bundle.putInt(JAHR_TEILAUFGABE, mAufgabe.getDeadline().get(Calendar.YEAR));
-                    bundle.putInt(MONAT_TEILAUFGABE, mAufgabe.getDeadline().get(Calendar.MONTH));
-                    bundle.putInt(TAG_TEILAUFGABE, mAufgabe.getDeadline().get(Calendar.DAY_OF_MONTH));
-
+                    bundle.putInt(Constants.JAHR_AUFGABE, mAufgabe.getDeadline().get(Calendar.YEAR));
+                    bundle.putInt(Constants.MONAT_AUFGABE, mAufgabe.getDeadline().get(Calendar.MONTH));
+                    bundle.putInt(Constants.TAG_AUFGABE, mAufgabe.getDeadline().get(Calendar.DAY_OF_MONTH));
+                    bundle.putString(Constants.ID_AUFGABE, "null");
                     DialogFragment newFragment = new Dialog_DatePicker();
                     newFragment.setArguments(bundle);
                     newFragment.show(getSupportFragmentManager(), "datePicker");
                 } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(Constants.JAHR_AUFGABE, mAufgabe.getDeadline().get(Calendar.YEAR));
+                    bundle.putInt(Constants.MONAT_AUFGABE, mAufgabe.getDeadline().get(Calendar.MONTH));
+                    bundle.putInt(Constants.TAG_AUFGABE, mAufgabe.getDeadline().get(Calendar.DAY_OF_MONTH));
+                    bundle.putString(Constants.ID_AUFGABE, "null");
                     DialogFragment newFragment = new Dialog_DatePicker();
+                    newFragment.setArguments(bundle);
                     newFragment.show(getSupportFragmentManager(), "datePicker");
                 }
             }
@@ -417,17 +421,14 @@ public class AufgabeErstellen extends AppCompatActivity implements Dialog_DatePi
     }
 
     @Override
-    public void onDateSelected(int year, int month, int day) {
+    public void onDateSelected(int year, int month, int day, String uuid) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, day);
         mAufgabe.setDeadline(cal);
 
-
         GregorianCalendar date = new GregorianCalendar(year, month, day);
         rbDate.setText("  " + format(date));
         rbDays.setText("  " + Integer.toString((int) getNumberOfLeftDays(cal)) + " " + (getString(R.string.rbDays_Days)));
-
-
     }
 
 

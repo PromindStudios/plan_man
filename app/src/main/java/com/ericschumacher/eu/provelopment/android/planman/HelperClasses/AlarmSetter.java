@@ -14,7 +14,7 @@ public class AlarmSetter {
 
     public void setAlarm(Context context) {
         Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.setAction(Constans.EXTRA_ALARM_NUMBER_ONE);
+        intent.setAction(Constants.EXTRA_ALARM_NUMBER_ONE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         Calendar calendar = Calendar.getInstance();
@@ -30,7 +30,7 @@ public class AlarmSetter {
 
     public void cancelAlarm(Context context) {
         Intent intent = new Intent(context, AlarmReceiver.class);
-        intent.setAction(Constans.EXTRA_ALARM_NUMBER_ONE);
+        intent.setAction(Constants.EXTRA_ALARM_NUMBER_ONE);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager alarm = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarm.cancel(pendingIntent);

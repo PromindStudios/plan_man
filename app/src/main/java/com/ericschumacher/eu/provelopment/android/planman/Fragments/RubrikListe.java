@@ -1,7 +1,6 @@
 package com.ericschumacher.eu.provelopment.android.planman.Fragments;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,19 +25,17 @@ import android.widget.Toast;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.AufgabeErstellen;
 import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
-import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Aufgabe_Check;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Info;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Notification;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Rubrik_Add;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Rubrik_Delete;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Rubrik_Edit;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AlarmSetter;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikAdapter;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
-import com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben.TeilaufgabenAdapter;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -171,15 +168,15 @@ public class RubrikListe extends Fragment implements RubrikAdapter.RubrikItemLis
             public void onClick(View v) {
                 AlarmSetter alarmSetter = new AlarmSetter();
 
-                SharedPreferences settings = getActivity().getSharedPreferences(Constans.SHARED_PREFERENCES, 0);
-                Boolean alarmActivated = settings.getBoolean(Constans.SP_ALARM_SET_BY_USER, true);
+                SharedPreferences settings = getActivity().getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
+                Boolean alarmActivated = settings.getBoolean(Constants.SP_ALARM_SET_BY_USER, true);
 
                 if (alarmActivated) {
                     alarmSetter.cancelAlarm(getActivity());
                     ibNotification.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_bell_strikethrough));
 
                     SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean(Constans.SP_ALARM_SET_BY_USER, false);
+                    editor.putBoolean(Constants.SP_ALARM_SET_BY_USER, false);
                     editor.commit();
                     Toast.makeText(getActivity(),getActivity().getString(R.string.Notification_Deactivated), Toast.LENGTH_SHORT).show();
                 } else {
@@ -187,7 +184,7 @@ public class RubrikListe extends Fragment implements RubrikAdapter.RubrikItemLis
                     ibNotification.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_bell));
 
                     SharedPreferences.Editor editor = settings.edit();
-                    editor.putBoolean(Constans.SP_ALARM_SET_BY_USER, true);
+                    editor.putBoolean(Constants.SP_ALARM_SET_BY_USER, true);
                     editor.commit();
                     Toast.makeText(getActivity(),getActivity().getString(R.string.Notification_Activated), Toast.LENGTH_SHORT).show();
                 }

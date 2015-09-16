@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.DatePicker;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.AufgabeErstellen;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 
 import java.util.Calendar;
@@ -24,23 +25,25 @@ public class Dialog_DatePicker extends DialogFragment
     int year;
     int month;
     int day;
+    String uuid;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        if(getArguments() != null) {
+
             Bundle bundle = getArguments();
-            year = bundle.getInt(AufgabeErstellen.JAHR_TEILAUFGABE);
-            month = bundle.getInt(AufgabeErstellen.MONAT_TEILAUFGABE);
-            day = bundle.getInt(AufgabeErstellen.TAG_TEILAUFGABE);
+            year = bundle.getInt(Constants.JAHR_AUFGABE);
+            month = bundle.getInt(Constants.MONAT_AUFGABE);
+            day = bundle.getInt(Constants.TAG_AUFGABE);
+            uuid = bundle.getString(Constants.ID_AUFGABE);
+
+
+        if (getTargetFragment() != null) {
+            mListener = (DatePickerListener)getTargetFragment();
         } else {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            year = c.get(Calendar.YEAR);
-            month = c.get(Calendar.MONTH);
-            day = c.get(Calendar.DAY_OF_MONTH);
+            mListener = (DatePickerListener)getActivity();
         }
-        mListener = (DatePickerListener) getActivity();
+
 
         // Create a new instance of DatePickerDialog and return it
         DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
@@ -70,13 +73,13 @@ public class Dialog_DatePicker extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        mListener.onDateSelected(year, month, day);
+        mListener.onDateSelected(year, month, day, uuid);
 
         // Do something with the date chosen by the user
     }
 
     public interface DatePickerListener {
-        public void onDateSelected (int year, int month, int day);
+        public void onDateSelected (int year, int month, int day, String uuid);
     }
 }
 

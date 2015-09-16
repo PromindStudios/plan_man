@@ -1,30 +1,22 @@
 package com.ericschumacher.eu.provelopment.android.planman.Activities;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.os.Handler;
 import android.os.ParcelUuid;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
@@ -34,10 +26,9 @@ import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Rubrik_
 import com.ericschumacher.eu.provelopment.android.planman.Fragments.AufgabenListe;
 import com.ericschumacher.eu.provelopment.android.planman.Fragments.AufgabenUebersicht;
 import com.ericschumacher.eu.provelopment.android.planman.Fragments.RubrikListe;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AlarmReceiver;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AlarmSetter;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikAdapter;
@@ -129,7 +120,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
         fragmentTransaction.commit();
 
         // open Navigation Drawer when Activity starts in the beginning
-        if (!getIntent().getBooleanExtra(Constans.NOTIFACTION_INTENT, false)) {
+        if (!getIntent().getBooleanExtra(Constants.NOTIFACTION_INTENT, false)) {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
@@ -143,7 +134,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
 
         // set Alarm
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);;
-        mAlarmSet = settings.getBoolean(Constans.SP_ALARM_SET, false);
+        mAlarmSet = settings.getBoolean(Constants.SP_ALARM_SET, false);
 
 
         if (!mAlarmSet) {
@@ -151,7 +142,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
             alarmSetter.setAlarm(this);
 
             SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean(Constans.SP_ALARM_SET, true);
+            editor.putBoolean(Constants.SP_ALARM_SET, true);
             editor.commit();
         }
 
@@ -398,7 +389,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
 
         // Create Bundle for Arguments
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Constans.ID_RUBRIK, new ParcelUuid(rubrikId));
+        bundle.putParcelable(Constants.ID_RUBRIK, new ParcelUuid(rubrikId));
 
         // Start Fragment: AufgabenListe
         FragmentManager fragmentManager = getSupportFragmentManager();

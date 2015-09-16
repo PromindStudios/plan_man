@@ -3,7 +3,7 @@ package com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,14 +88,14 @@ public class Teilaufgabe {
     private void createId_Long(Context context) {
 
         // load value
-        SharedPreferences settings = context.getSharedPreferences(Constans.SHARED_PREFERENCES, 0);
-        long lastIdUsed = settings.getLong(Constans.SP_TA_ID_LONG_LAST, 0);
+        SharedPreferences settings = context.getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
+        long lastIdUsed = settings.getLong(Constants.SP_TA_ID_LONG_LAST, 0);
         lastIdUsed++;
         mId_long = lastIdUsed;
 
         // save value
         SharedPreferences.Editor editor = settings.edit();
-        editor.putLong(Constans.SP_TA_ID_LONG_LAST, lastIdUsed);
+        editor.putLong(Constants.SP_TA_ID_LONG_LAST, lastIdUsed);
         editor.commit();
 
     }

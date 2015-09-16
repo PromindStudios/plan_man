@@ -10,8 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 
 /**
@@ -30,7 +29,7 @@ public class Dialog_Aufgabe_Check extends DialogFragment {
 
         //Get UUID
         final Bundle bundle = getArguments();
-        final String uuid = bundle.getString(Constans.ID_AUFGABE);
+        final String uuid = bundle.getString(Constants.ID_AUFGABE);
         //final Boolean overview = bundle.getBoolean(Main.OVERVIEW);
 
         // Set up Listener

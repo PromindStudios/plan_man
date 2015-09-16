@@ -1,9 +1,7 @@
 package com.ericschumacher.eu.provelopment.android.planman.Aufgaben;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -21,10 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
-import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constans;
 import com.ericschumacher.eu.provelopment.android.planman.R;
-import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
-import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -260,6 +255,22 @@ public class Adapter_AufgabenListe extends RecyclerView.Adapter<Adapter_Aufgaben
         }
         */
 
+        myViewHolder.ibPrioritaet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onPrioritaetUp(aufgabe.getId());
+            }
+        });
+
+        myViewHolder.ibDeadline.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                mListener.onDeadlineLongClick(aufgabe.getId());
+                return true;
+            }
+        });
+
+
     }
 
     @Override
@@ -309,6 +320,8 @@ public class Adapter_AufgabenListe extends RecyclerView.Adapter<Adapter_Aufgaben
     public interface AufgabenAdapter_Listener {
         public void onAufgabenItemSelected(UUID aufgabenId);
         public void onAufgabenItemDelete(UUID aufgabenId);
+        public void onPrioritaetUp(UUID aufgabenId);
+        void onDeadlineLongClick(UUID aufgabenId);
     }
 
     private int getPixelWidth(Context context) {

@@ -3,8 +3,11 @@ package com.ericschumacher.eu.provelopment.android.planman.HelperClasses;
 /**
  * Created by eric on 27.08.2015.
  */
-public class Constans {
+public class Constants {
 
+    public static final String JAHR_AUFGABE = "jahr_aufgabe";
+    public static final String MONAT_AUFGABE = "monat_aufgabe";
+    public static final String TAG_AUFGABE = "tag_aufgabe";
     public static String NOTIFACTION_INTENT = "notification_intent";
     public static String ID_RUBRIK = "id_rubrik";
     public static String ID_AUFGABE = "id_aufgabe";

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.util.Log;
 
 import com.ericschumacher.eu.provelopment.android.planman.R;
@@ -32,8 +31,8 @@ public class ColorTheme {
         mContext = context;
 
         //get Color Theme
-        SharedPreferences settings = mContext.getSharedPreferences(Constans.SHARED_PREFERENCES, 0);
-        mColorTheme = settings.getInt(Constans.SP_COLOR_THEME, 0);
+        SharedPreferences settings = mContext.getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
+        mColorTheme = settings.getInt(Constants.SP_COLOR_THEME, 0);
 
         // set States
         mStates = new int[][] {
