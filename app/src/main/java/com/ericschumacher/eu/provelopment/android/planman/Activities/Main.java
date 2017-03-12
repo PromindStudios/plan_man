@@ -919,6 +919,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
             return null;
         }
 
+        // Eric
         protected void onPostExecute(String file_url) {
 
             if (mUserId > 0) {
