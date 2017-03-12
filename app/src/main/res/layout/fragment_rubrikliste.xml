@@ -5,14 +5,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#EEE"
-                tools:context="com.ericschumacher.eu.provelopment.android.localz.Fragments.NavagationDrawer">
+                tools:context="com.ericschumacher.eu.provelopment.android.planman.Fragments.RubrikListe">
 
 
     <RelativeLayout
         android:id="@+id/rlHeader"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:background="@color/colorPrimary_Primelist">
+        android:layout_height="140dp">
 
         <TextView
             android:id="@+id/tvTitleHeader"
@@ -29,9 +28,19 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="8dp"
-            android:id="@+id/ibSort_Rubriken"
+            android:id="@+id/ibColor"
             android:background="@color/transparent"
-            android:src="@drawable/ic_sort"/>
+            android:src="@drawable/ic_color"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="8dp"
+            android:id="@+id/ibPremium"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_person"/>
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -63,17 +72,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rlHeader"
-        android:layout_above="@id/rlAppInfo_">
+        android:layout_above="@id/rlAppInfo">
 
 
     </android.support.v7.widget.RecyclerView>
 
     <RelativeLayout
-        android:id="@+id/rlAppInfo_"
+        android:id="@+id/rlAppInfo"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryLight_Primelist">
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true">
 
         <ImageButton
             android:id="@+id/ibAppInfo"

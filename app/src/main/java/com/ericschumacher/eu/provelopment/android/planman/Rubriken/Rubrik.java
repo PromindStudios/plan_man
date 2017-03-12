@@ -1,11 +1,14 @@
 package com.ericschumacher.eu.provelopment.android.planman.Rubriken;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.AufgabenIntentJSONSerializer;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
+import com.ericschumacher.eu.provelopment.android.planman.Services.DeleteAufgabe;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,10 +24,14 @@ import java.util.UUID;
  */
 public class Rubrik {
 
+    // Constants
     private static final String JSON_ID = "id";
     private static final String JSON_TITLE = "title";
     private static final String JSON_FILENAME_AUFGABE = "filename_aufgabe";
     private static final String JSON_SORTY_BY_DATE = "sort_by_date";
+    private static final String JSON_CONNECTED = "connected";
+
+    // Attributes
     private UUID mId;
     private String mTitle;
     private String mFilenameAufgaben;
@@ -32,19 +39,22 @@ public class Rubrik {
     private AufgabenIntentJSONSerializer mSerializer;
     private static Context sAppContext;
     private boolean mSortByDate;
+    private boolean mIsConnected;
 
-
-    public Rubrik(String title) {
+    public Rubrik(String title, Context context) {
 
         mId = UUID.randomUUID();
         mTitle = title;
         mSortByDate = true;
         mAufgaben = new ArrayList<Aufgabe>();
         mFilenameAufgaben = UUID.randomUUID().toString().replaceAll("-", "") + ".json";
+        mIsConnected = false;
+        sAppContext = context;
     }
 
 
     public Rubrik(JSONObject json, Context context) throws JSONException {
+        sAppContext = context;
         mId = UUID.fromString(json.getString(JSON_ID));
         mFilenameAufgaben = json.getString(JSON_FILENAME_AUFGABE);
 
@@ -57,7 +67,12 @@ public class Rubrik {
 
         if (json.has(JSON_TITLE)) {
             mTitle = json.getString(JSON_TITLE);
+        }
 
+        if (json.has(JSON_CONNECTED)) {
+            mIsConnected = json.getBoolean(JSON_CONNECTED);
+        } else {
+            mIsConnected = false;
         }
         mSerializer = new AufgabenIntentJSONSerializer(context);
 
@@ -87,18 +102,29 @@ public class Rubrik {
         mTitle = title;
     }
 
+    public boolean isConnected() {
+        return mIsConnected;
+    }
+
+    public void setIsConnected(boolean isConnected) {
+        this.mIsConnected = isConnected;
+    }
 
     public ArrayList<Aufgabe> getAufgabenArrayList(Context c) {
+
 
         sAppContext = c.getApplicationContext();
 
         mSerializer = new AufgabenIntentJSONSerializer(sAppContext);
 
+        /*
         try {
             mAufgaben = mSerializer.loadAufgaben(mFilenameAufgaben);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
+
 
         if (mSortByDate) {
             Log.i("SortByDate: ", "True");
@@ -117,24 +143,13 @@ public class Rubrik {
         mAufgaben.add(a);
     }
 
+    public void deleteAufgabenArrayList() {
+        mAufgaben = null;
+    }
+
     public void deleteAufgabe(Aufgabe a) {
+        mAufgaben.remove(a);
 
-        /*
-        Aufgabe delete = getAufgabe(getId());
-        int index = 0;
-        for (int i = 0; i < mAufgaben.size(); i++) {
-            if (mAufgaben.get(i) == a) {
-                index = i;
-            }
-        }
-
-
-        Log.i("Delete_Auf_Title: ", a.getTitle());
-        */
-        boolean ergebnis;
-        ergebnis = mAufgaben.remove(a);
-        Log.i("Ergebnis: ", Boolean.toString(ergebnis));
-        Log.i("Size_Rubrik_aufgaben: ", Integer.toString(mAufgaben.size()));
     }
 
     public Aufgabe getAufgabe(UUID id) {
@@ -151,6 +166,7 @@ public class Rubrik {
         json.put(JSON_TITLE, mTitle);
         json.put(JSON_FILENAME_AUFGABE, mFilenameAufgaben);
         json.put(JSON_SORTY_BY_DATE, mSortByDate);
+        json.put(JSON_CONNECTED, mIsConnected);
         //saveAufgaben();
         //mSerializer = new AufgabenIntentJSONSerializer(sAppContext, FILENAME);
         //try {
@@ -172,6 +188,7 @@ public class Rubrik {
         try {
             int Size = mAufgaben.size();
             //Log.i("Size_save: ", Integer.toString(Size)); // KEIN FEHLER
+            mSerializer = new AufgabenIntentJSONSerializer(sAppContext);
             mSerializer.saveAufgaben(mAufgaben, mFilenameAufgaben);
             return true;
         } catch (Exception e) {
@@ -271,4 +288,6 @@ public class Rubrik {
         return aufgaben;
 
     }
+
+
 }

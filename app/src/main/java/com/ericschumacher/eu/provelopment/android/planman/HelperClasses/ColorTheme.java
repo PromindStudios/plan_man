@@ -26,12 +26,16 @@ public class ColorTheme {
     ColorStateList mColorStateListPrimaryDark;
     ColorStateList mColorStateListPrimaryLight;
 
+    // Shared Preferences Instance
+    SharedPreferences settings;
+
     public ColorTheme (Context context) {
         Log.i("ColorTheme: ", "Executed");
         mContext = context;
 
         //get Color Theme
-        SharedPreferences settings = mContext.getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
+        settings = mContext.getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
+
         mColorTheme = settings.getInt(Constants.SP_COLOR_THEME, 0);
 
         // set States
@@ -42,32 +46,31 @@ public class ColorTheme {
         Resources r = context.getResources();
 
         mColorsPrimary = new int[6];
-        mColorsPrimary[0] = r.getColor(R.color.colorPrimary_Primelist);
-        mColorsPrimary[1] = r.getColor(R.color.colorPrimary_Executive);
-        mColorsPrimary[2] = r.getColor(R.color.colorPrimary_Ocean);
-        mColorsPrimary[3] = r.getColor(R.color.colorPrimary_Royal);
-        mColorsPrimary[4] = r.getColor(R.color.colorPrimary_Candy);
-        mColorsPrimary[5] = r.getColor(R.color.colorPrimary_Forest);
+        mColorsPrimary[0] = R.color.colorPrimary_Primelist;
+        mColorsPrimary[1] = R.color.colorPrimary_Executive;
+        mColorsPrimary[2] = R.color.colorPrimary_Ocean;
+        mColorsPrimary[3] = R.color.colorPrimary_Royal;
+        mColorsPrimary[4] = R.color.colorPrimary_Candy;
+        mColorsPrimary[5] = R.color.colorPrimary_GreenAlley;
 
         mColorsPrimaryDark = new int[6];
-        mColorsPrimaryDark[0] = r.getColor(R.color.colorPrimaryDark_Primelist);
-        mColorsPrimaryDark[1] = r.getColor(R.color.colorPrimaryDark_Executive);
-        mColorsPrimaryDark[2] = r.getColor(R.color.colorPrimaryDark_Ocean);
-        mColorsPrimaryDark[3] = r.getColor(R.color.colorPrimaryDark_Royal);
-        mColorsPrimaryDark[4] = r.getColor(R.color.colorPrimaryDark_Candy);
-        mColorsPrimaryDark[5] = r.getColor(R.color.colorPrimaryDark_Forest);
+        mColorsPrimaryDark[0] = R.color.colorPrimaryDark_Primelist;
+        mColorsPrimaryDark[1] = R.color.colorPrimaryDark_Executive;
+        mColorsPrimaryDark[2] = R.color.colorPrimaryDark_Ocean;
+        mColorsPrimaryDark[3] = R.color.colorPrimaryDark_Royal;
+        mColorsPrimaryDark[4] = R.color.colorPrimaryDark_Candy;
+        mColorsPrimaryDark[5] = R.color.colorPrimaryDark_GreenAlley;
 
         mColorsPrimaryLight = new int[6];
-        mColorsPrimaryLight[0] = r.getColor(R.color.colorPrimaryLight_Primelist);
-        mColorsPrimaryLight[1] = r.getColor(R.color.colorPrimaryLight_Executive);
-        mColorsPrimaryLight[2] = r.getColor(R.color.colorPrimaryLight_Ocean);
-        mColorsPrimaryLight[3] = r.getColor(R.color.colorPrimaryLight_Royal);
-        mColorsPrimaryLight[4] = r.getColor(R.color.colorPrimaryLight_Candy);
-        mColorsPrimaryLight[5] = r.getColor(R.color.colorPrimaryLight_Forest);
+        mColorsPrimaryLight[0] = R.color.colorPrimaryLight_Primelist;
+        mColorsPrimaryLight[1] = R.color.colorPrimaryLight_Executive;
+        mColorsPrimaryLight[2] = R.color.colorPrimaryLight_Ocean;
+        mColorsPrimaryLight[3] = R.color.colorPrimaryLight_Royal;
+        mColorsPrimaryLight[4] = R.color.colorPrimaryLight_Candy;
+        mColorsPrimaryLight[5] = R.color.colorPrimaryLight_GreenAlley;
     }
 
     public int getColorPrimary() {
-
 
         return mColorsPrimary[mColorTheme];
     }

@@ -10,6 +10,7 @@
     <color name="transparent">#00000000</color>
     <color name="colorBackground">#EEE</color>
     <color name="colorGreen">#4CAF50</color>
+    <color name="icon_color">#ffffff</color>
 
     <!-- Colors of Importance -->
     <color name="Importance_one">#F44336</color>
@@ -18,48 +19,53 @@
     <!-- Orange Color set "Default" -->
     <color name="colorPrimary">#fff4b82e</color>
     <color name="colorPrimaryDark">#fff5a525</color>
-    <color name="colorPrimaryLight">#6df8cf57</color>
+    <color name="colorPrimaryLight">#87f8cf57</color>
     <color name="colorAccent">#fff4b82e</color>
 
     <!-- Orange Color set "Primelist" -->
     <color name="colorPrimary_Primelist">#fff4b82e</color>
     <color name="colorPrimaryDark_Primelist">#fff5a525</color>
-    <color name="colorPrimaryLight_Primelist">#6df8cf57</color>
+    <color name="colorPrimaryLight_Primelist">#87f8cf57</color>
     <color name="colorAccent_Primelist">#fff4b82e</color>
 
     <!-- Blue Dark Color set "Executive" 2 -->
     <color name="colorPrimary_Executive">#ff45556b</color>
     <color name="colorPrimaryDark_Executive">#ff324258</color>
-    <color name="colorPrimaryLight_Executive">#CFD8DC</color>
+    <color name="colorPrimaryLight_Executive">#79546f92</color>
     <color name="colorAccent_Executive">#ff45556b</color>
 
 
     <!-- Teal Color set "Ocean" 3 -->
     <color name="colorPrimary_Ocean">#009688</color>
     <color name="colorPrimaryDark_Ocean">#ff008072</color>
-    <color name="colorPrimaryLight_Ocean">#B2EBF2</color>
+    <color name="colorPrimaryLight_Ocean">#30008071</color>
     <color name="colorAccent_Ocean">#009688</color>
 
 
     <!-- Blue Bright Color set  "Royal" 4 -->
     <color name="colorPrimary_Royal">#1565C0</color>
-    <color name="colorPrimaryDark_Royal">#0D47A1</color>
-    <color name="colorPrimaryLight_Royal">#BBDEFB</color>
+    <color name="colorPrimaryDark_Royal">#1565C0</color>
+    <color name="colorPrimaryLight_Royal">#751565c0</color>
     <color name="colorAccent_Royal">#1565C0</color>
 
 
     <!-- Pink Color set "Candy" 5 -->
     <color name="colorPrimary_Candy">#F06292</color>
     <color name="colorPrimaryDark_Candy">#ffdd5d84</color>
-    <color name="colorPrimaryLight_Candy">#33e15e87</color>
+    <color name="colorPrimaryLight_Candy">#7ddd5d84</color>
     <color name="colorAccent_Candy">#F06292</color>
 
 
     <!-- Green Color set "Forest" 6 -->
-    <color name="colorPrimary_Forest">#4CAF50</color>
-    <color name="colorPrimaryDark_Forest">#388E3C</color>
-    <color name="colorPrimaryLight_Forest">#C8E6C9</color>
-    <color name="colorAccent_Forest">#4CAF50</color>
+    <color name="colorPrimary_GreenAlley">#4CAF50</color>
+    <color name="colorPrimaryDark_GreenAlley">#388E3C</color>
+    <color name="colorPrimaryLight_GreenAlley">#724caf50</color>
+    <color name="colorAccent_GreenAlley">#4CAF50</color>
+
+    <!-- More Colors -->
+    <color name="colorOrangeExtremeLight">#bff4b82e</color>
+    <color name="colorOrangeLightAppWidget">#ffd480</color>
+    <color name="colorWhiteTransparent">#f6ffffff</color>
 
 
 

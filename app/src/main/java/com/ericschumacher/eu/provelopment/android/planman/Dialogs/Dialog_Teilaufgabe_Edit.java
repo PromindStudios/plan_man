@@ -5,14 +5,18 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.AufgabeErstellen;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 
 import java.util.UUID;
@@ -47,6 +51,12 @@ public class Dialog_Teilaufgabe_Edit extends DialogFragment{
         //Show Keyboard and set Title
         etEingabe.setText(mTitle);
         etEingabe.requestFocus();
+
+        // set Color of Header
+        Log.i("Aufgabe_Check: ", "checked!");
+        ColorTheme colorTheme = new ColorTheme(getActivity());
+        TextView tvHeader = (TextView)myView.findViewById(R.id.dialog_title);
+        tvHeader.setBackgroundColor(ContextCompat.getColor(getActivity(), colorTheme.getColorPrimary()));
 
         //Set ClickListener
         ibSave.setOnClickListener(new View.OnClickListener() {

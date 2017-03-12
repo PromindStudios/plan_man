@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
     <RelativeLayout
@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
 
         android:paddingLeft="@dimen/standard_padding_edges"
-        android:paddingRight="@dimen/standard_padding_edges">
+        android:paddingRight="8dp">
 
         <ImageButton
             android:id="@+id/ibDeadline_Indicator_Rubrik"
@@ -31,14 +31,14 @@
             android:text="12"/>
 
         <ImageButton
-            android:id="@+id/ibPrioritaet_Rubrik"
+            android:id="@+id/ibConnected"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="@dimen/absatz_2"
             android:layout_toLeftOf="@id/ibDeadline_Indicator_Rubrik"
             android:background="@color/transparent"
             android:gravity="center_vertical"
-            android:src="@drawable/ic_prioritaet_eins"/>
+            android:src="@drawable/ic_share"/>
 
 
         <LinearLayout
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/ibPrioritaet"
+            android:layout_toLeftOf="@id/ibConnected"
             android:orientation="vertical">
 
             <TextView

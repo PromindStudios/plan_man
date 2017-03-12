@@ -1,7 +1,5 @@
 package com.ericschumacher.eu.provelopment.android.planman.HelperClasses;
 
-import android.util.Log;
-
 import java.util.Calendar;
 
 /**

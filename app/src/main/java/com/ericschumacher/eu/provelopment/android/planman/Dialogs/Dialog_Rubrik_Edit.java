@@ -5,13 +5,17 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.ericschumacher.eu.provelopment.android.planman.Fragments.RubrikListe;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 
 /**
@@ -27,8 +31,6 @@ public class Dialog_Rubrik_Edit extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-
 
         String rubrik_title = getArguments().getString(RubrikListe.EDIT_RUBRIK_KEY);
         final String id = getArguments().getString(RubrikListe.ID_EDIT_RUBRIK_KEY);
@@ -49,7 +51,11 @@ public class Dialog_Rubrik_Edit extends DialogFragment {
         etEingabe.setText(rubrik_title);
         etEingabe.requestFocus();
 
-
+        // set Color of Header
+        Log.i("Aufgabe_Check: ", "checked!");
+        ColorTheme colorTheme = new ColorTheme(getActivity());
+        TextView tvHeader = (TextView)myView.findViewById(R.id.dialog_title);
+        tvHeader.setBackgroundColor(ContextCompat.getColor(getActivity(), colorTheme.getColorPrimary()));
 
         //Set ClickListener
         ibSave.setOnClickListener(new View.OnClickListener() {

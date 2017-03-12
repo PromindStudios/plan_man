@@ -1,32 +1,26 @@
 package com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.Paint;
-import android.support.v4.view.ViewCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.internal.widget.DrawableUtils;
-import android.support.v7.internal.widget.ViewUtils;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.R;
-import com.h6ah4i.android.widget.advrecyclerview.draggable.DraggableItemAdapter;
-import com.h6ah4i.android.widget.advrecyclerview.draggable.ItemDraggableRange;
-import com.h6ah4i.android.widget.advrecyclerview.draggable.RecyclerViewDragDropManager;
-import com.h6ah4i.android.widget.advrecyclerview.utils.AbstractDraggableItemViewHolder;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.UUID;
 
 /**
@@ -42,16 +36,27 @@ public class TeilaufgabenAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     TeilaufgabenListener mTeilaufgabenListener;
 
+    // Colors
+    ColorTheme colorTheme;
+
     private LayoutInflater inflator;
     private ArrayList<Teilaufgabe> mTeilaufgaben;
 
     private Context mContext;
 
-    public TeilaufgabenAdapter(Context context, ArrayList<Teilaufgabe> teilaufgaben, TeilaufgabenListener teilaufgabenListener) {
+    // Premium
+    boolean mPremium;
+    boolean mTestversion;
+
+    public TeilaufgabenAdapter(Context context, ArrayList<Teilaufgabe> teilaufgaben, TeilaufgabenListener teilaufgabenListener, boolean premium, boolean testversion) {
         mContext = context;
         mTeilaufgaben = teilaufgaben;
         inflator = LayoutInflater.from(context);
         mTeilaufgabenListener = teilaufgabenListener;
+
+        colorTheme = new ColorTheme(context);
+        mPremium = premium;
+        mTestversion = testversion;
     }
 
     @Override
@@ -76,17 +81,28 @@ public class TeilaufgabenAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (position == 0) {
             TeilaufgabenAdapter.ViewHolder_Add Holder= (TeilaufgabenAdapter.ViewHolder_Add)holder;
             Log.i("Add: ", "Created");
+
+
             Holder.rlAddTeilaufgabe.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mTeilaufgabenListener.onAdd();
+                    if (mPremium || mTestversion) {
+                        mTeilaufgabenListener.onAdd();
+                    } else {
+                        mTeilaufgabenListener.onFunctionDeactivatd();
+                    }
+
                 }
 
             });
             Holder.ibAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mTeilaufgabenListener.onAdd();
+                    if (mPremium || mTestversion) {
+                        mTeilaufgabenListener.onAdd();
+                    } else {
+                        mTeilaufgabenListener.onFunctionDeactivatd();
+                    }
 
                 }
             });
@@ -155,7 +171,17 @@ public class TeilaufgabenAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
             });
 
+            if (android.os.Build.VERSION.SDK_INT >= 21) {
+                Holder.cbTeilaufgabe.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(mContext, colorTheme.getColorPrimary())));
+            } else {
+                int id = Resources.getSystem().getIdentifier("btn_check_holo_light", "drawable", "android");
+                Holder.cbTeilaufgabe.setButtonDrawable(id);
+                //myViewHolder.cbCheckAufgabe_deaktiviert.setButtonDrawable(id);
+            }
+
         }
+
+
 
 
     }
@@ -218,5 +244,7 @@ public class TeilaufgabenAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public void onMoveUp(int position);
         public void onMoveDown(int position);
+
+        public void onFunctionDeactivatd();
     }
 }

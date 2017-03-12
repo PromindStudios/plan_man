@@ -5,11 +5,14 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 
 /**
@@ -29,10 +32,17 @@ public class Dialog_Notification extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
 
         final View myView = inflater.inflate(R.layout.fragment_dialog_info, null);
-        tvTitle = (TextView) myView.findViewById(R.id.tvDialog_Info_Title);
+        tvTitle = (TextView) myView.findViewById(R.id.dialog_title);
         tvContent = (TextView) myView.findViewById(R.id.tvDialog_Info_Content);
         tvTitle.setText(getActivity().getString(R.string.Dialog_Info_Titlxe));
         tvContent.setText(getActivity().getString(R.string.Dialog_Info_Content));
+
+        // set Color of Header
+        Log.i("Aufgabe_Check: ", "checked!");
+        ColorTheme colorTheme = new ColorTheme(getActivity());
+        TextView tvHeader = (TextView)myView.findViewById(R.id.dialog_title);
+        tvHeader.setBackgroundColor(ContextCompat.getColor(getActivity(), colorTheme.getColorPrimary()));
+
         ImageButton ibSave= (ImageButton) myView.findViewById(R.id.ibSave_info_dialog);
         ibSave.setOnClickListener(new View.OnClickListener() {
             @Override

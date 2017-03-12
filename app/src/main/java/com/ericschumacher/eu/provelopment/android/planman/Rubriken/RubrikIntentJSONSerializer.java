@@ -2,8 +2,6 @@ package com.ericschumacher.eu.provelopment.android.planman.Rubriken;
 
 import android.content.Context;
 
-import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONTokener;

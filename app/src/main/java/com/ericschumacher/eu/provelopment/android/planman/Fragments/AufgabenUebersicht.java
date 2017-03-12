@@ -1,6 +1,7 @@
 package com.ericschumacher.eu.provelopment.android.planman.Fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,12 +10,14 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.AufgabeErstellen;
@@ -24,11 +27,13 @@ import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_Aufgabe_Check;
 import com.ericschumacher.eu.provelopment.android.planman.Dialogs.Dialog_DatePicker;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.AnalyticsApplication;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Sorter;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
+import com.ericschumacher.eu.provelopment.android.planman.Services.UpdateRubrik;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
@@ -45,6 +50,7 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
     private RecyclerView rvAufgabenUebersicht;
     private FloatingActionButton fabAdd;
     private Adapter_AufgabenListe mAdapter;
+    private RelativeLayout rlHeaderGround;
 
     // Data Components
     private Rubrik mRubrik;
@@ -57,6 +63,10 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
 
     // Analytics
     Tracker mTracker;
+
+    // Premium
+    private boolean mPremium;
+    private boolean mTestVersion;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +81,10 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // inflate View
         View layout = inflater.inflate(R.layout.fragment_aufgabenuebersicht, container, false);
+
+        Bundle bundle = getArguments();
+        mPremium = bundle.getBoolean(Constants.FRAGMENT_PREMIUM);
+        mTestVersion = bundle.getBoolean(Constants.FRAGMENT_TEST_VERSION);
 
         // initialize Layout Components
         rvAufgabenUebersicht = (RecyclerView) layout.findViewById(R.id.rvAufgabenliste);
@@ -99,13 +113,20 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
         loadRecyclerView();
         rvAufgabenUebersicht.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        // set Colors
+        ColorTheme colorTheme = new ColorTheme(getActivity());
+
+        // initialize GroundHeader
+        rlHeaderGround = (RelativeLayout) layout.findViewById(R.id.rlAppInfo);
+        rlHeaderGround.setBackgroundColor(ContextCompat.getColor(getActivity(), colorTheme.getColorPrimaryLight()));
+
         return layout;
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        mListener = (Main) activity;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mListener = (Main) context;
     }
 
     @Override
@@ -115,6 +136,7 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
         for (Rubrik r : rubriken) {
             r.saveAufgaben();
         }
+
     }
 
     @Override
@@ -152,7 +174,7 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
 
     private void loadRecyclerView() {
         // set up Adapter and RecyclerView
-        mAdapter = new Adapter_AufgabenListe(getActivity(), mAufgaben, true, this); // true indicates that we have an overview here
+        mAdapter = new Adapter_AufgabenListe(getActivity(), mAufgaben, true, this, mPremium, mTestVersion); // true indicates that we have an overview here
         rvAufgabenUebersicht.setAdapter(mAdapter);
 
     }
@@ -216,32 +238,57 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
     @Override
     public void onPrioritaetUp(UUID aufgabenId) {
 
-        Aufgabe aufgabe = mRubrik.getAufgabe(aufgabenId);
+        Aufgabe aufgabe = null;
+        Rubrik rubrik = null;
+        ArrayList<Rubrik> rubriken = RubrikLab.get(getActivity()).getRubriken();
+        for (Rubrik r : rubriken) {
+            aufgabe = r.getAufgabe(aufgabenId);
+            if (aufgabe != null) {
+                rubrik = r;
+                break;
+            }
+        }
+
+
         int prioritaet = aufgabe.getPrioritaet();
         if (prioritaet == 1) {
             aufgabe.setPrioritaet(3);
         } else {
             aufgabe.setPrioritaet(prioritaet - 1);
         }
-        mRubrik.saveAufgaben();
-        mAufgaben = mRubrik.getAufgabenArrayList(getActivity());
+
+        rubrik.saveAufgaben();
+
+        loadData();
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
                 loadRecyclerView();
             }
-        }, 200);
+        }, getActivity().getResources().getInteger(R.integer.length_update_priorityUP_dateIconLongClick));
 
     }
 
     @Override
     public void onDeadlineLongClick(UUID aufgabenId) {
-        Aufgabe aufgabe = mRubrik.getAufgabe(aufgabenId);
+
+        Aufgabe aufgabe = null;
+        Rubrik rubrik = null;
+        ArrayList<Rubrik> rubriken = RubrikLab.get(getActivity()).getRubriken();
+        for (Rubrik r : rubriken) {
+            aufgabe = r.getAufgabe(aufgabenId);
+            if (aufgabe != null) {
+                rubrik = r;
+                break;
+            }
+        }
 
         // open Calendar
         if (aufgabe.getDeadline() != null) {
             Bundle bundle = new Bundle();
             bundle.putInt(Constants.JAHR_AUFGABE, aufgabe.getDeadline().get(Calendar.YEAR));
+            Log.i(aufgabe.getTitle(), Integer.toString(aufgabe.getDeadline().get(Calendar.YEAR)));
             bundle.putInt(Constants.MONAT_AUFGABE, aufgabe.getDeadline().get(Calendar.MONTH));
             bundle.putInt(Constants.TAG_AUFGABE, aufgabe.getDeadline().get(Calendar.DAY_OF_MONTH));
             bundle.putString(Constants.ID_AUFGABE, aufgabenId.toString());
@@ -281,6 +328,7 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
 
         rubrik.deleteAufgabe(aufgabe);
         rubrik.saveAufgaben();
+
         loadData();
         loadRecyclerView();
         //drawerFragment.onAufgabeDeleted();
@@ -297,20 +345,32 @@ public class AufgabenUebersicht extends Fragment implements Adapter_AufgabenList
     @Override
     public void onDateSelected(int year, int month, int day, String uuid) {
 
-        Aufgabe aufgabe = mRubrik.getAufgabe(UUID.fromString(uuid));
+        Aufgabe aufgabe = null;
+        Rubrik rubrik = null;
+        ArrayList<Rubrik> rubriken = RubrikLab.get(getActivity()).getRubriken();
+        for (Rubrik r : rubriken) {
+            aufgabe = r.getAufgabe(UUID.fromString(uuid));
+            if (aufgabe != null) {
+                rubrik = r;
+                break;
+            }
+        }
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, day);
         aufgabe.setDeadline(cal);
 
         //update
-        mRubrik.saveAufgaben();
-        mAufgaben = mRubrik.getAufgabenArrayList(getActivity());
+        rubrik.saveAufgaben();
+
+        loadData();
+
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
                 loadRecyclerView();
             }
-        }, 200);
+        }, getActivity().getResources().getInteger(R.integer.length_update_priorityUP_dateIconLongClick));
+        mListener.onUpdate();
 
     }
 

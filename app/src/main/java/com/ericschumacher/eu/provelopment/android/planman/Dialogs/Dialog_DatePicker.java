@@ -1,18 +1,16 @@
 package com.ericschumacher.eu.provelopment.android.planman.Dialogs;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.widget.DatePicker;
 
-import com.ericschumacher.eu.provelopment.android.planman.Activities.AufgabeErstellen;
 import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
 import com.ericschumacher.eu.provelopment.android.planman.R;
-
-import java.util.Calendar;
 
 /**
  * Created by eric on 16.07.2015.
@@ -45,8 +43,15 @@ public class Dialog_DatePicker extends DialogFragment
         }
 
 
+
+        DatePickerDialog datePickerDialog;
+        if (android.os.Build.VERSION.SDK_INT >= 23)  {
+            datePickerDialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_Alert, this, year, month, day);
+        } else {
+            datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+        }
         // Create a new instance of DatePickerDialog and return it
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+
         //datePickerDialog.setTitle(getActivity().getString(R.string.title_datepicker));
 
         DialogInterface.OnClickListener listener_positive = new DialogInterface.OnClickListener() {

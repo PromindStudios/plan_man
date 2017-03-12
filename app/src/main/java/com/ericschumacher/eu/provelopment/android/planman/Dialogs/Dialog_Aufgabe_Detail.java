@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -15,9 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ColorTheme;
 import com.ericschumacher.eu.provelopment.android.planman.R;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.Rubrik;
 import com.ericschumacher.eu.provelopment.android.planman.Rubriken.RubrikLab;
@@ -81,7 +84,7 @@ public class Dialog_Aufgabe_Detail extends DialogFragment{
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mAufgabe.setNotiz(s.toString());
+                mAufgabe.setNotiz(s.toString(), false);
             }
 
             @Override
@@ -107,6 +110,12 @@ public class Dialog_Aufgabe_Detail extends DialogFragment{
 
             }
         });
+
+        // set Color of Header
+        Log.i("Aufgabe_Check: ", "checked!");
+        ColorTheme colorTheme = new ColorTheme(getActivity());
+        TextView tvHeader = (TextView)myView.findViewById(R.id.dialog_title);
+        tvHeader.setBackgroundColor(ContextCompat.getColor(getActivity(), colorTheme.getColorPrimary()));
 
         ibDelete.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Primelist</string>
-
+    <string name="app_name">Primelist Notepad</string>
+    <string name="note">notes</string>
+    <string name="notes">notes</string>
+    <string name="more_notes">notes</string>
+    <string name="notes_more">notes</string>
+    <string name="notes_notepad">notepad</string>
     <string name="action_settings">Settings</string>
-    <string name="openDrawer">open</string>
+    <string name="openDrawer">Öffnen</string>
     <string name="closeDrawer">close</string>
     <string name="Text_Eingabe">Bitte Text eingeben...</string>
     <string name="add">Hinzufügen</string>
@@ -88,5 +92,53 @@
     <string name="Dialog_Info_Titlxe">Push-Nachrichten</string>
     <string name="Dialog_Info_Content">Wenn du die Funktion Push-Nachrichten aktivierst, erhälst du zu Beginn eines jeden Tages eine Push-Nachricht, die eine Liste der fälligen Aufgaben enthält.</string>
 
+    <!-- neu -->
+
+    <string name="share">Aufgabenbereich teilen</string>
+    <string name="your_id">Deine Id</string>
+    <string name="your_key">Dein Key</string>
+    <string name="user_information_title">Persönliche Informationen</string>
+    <string name="dialog_connect_title">Aufgabenbereich teilen</string>
+    <string name="Dialog_EditText_userId">Id des anderen Nutzers eingeben...</string>
+    <string name="Dialog_EditText_userKey">Key des anderen Nutzers eingeben...</string>
+    <string name="enter_Id_and_key">Bitte geben Sie die Id und den Key des Nutzers ein, mit dem Sie Ihren Aufgabenbereich teilen möchten</string>
+    <string name="invalid">Ungültige Eingabe</string>
+    <string name="wrong_UserId_OR_Key">Falsche User Id oder falscher User Key</string>
+    <string name="Color_Primelist">Primelist</string>
+    <string name="Color_Executive">Executive</string>
+    <string name="Color_Ocean">Ocean</string>
+    <string name="Color_Royal">Royal</string>
+    <string name="Color_Candy">Candy</string>
+    <string name="colorTheme_Title">Wähle dein Color Theme</string>
+    <string name="Color_GreenAlley">Green Alley</string>
+    <string name="due_today">Heute fällig</string>
+    <string name="due_tomorrow">Morgen fällig</string>
+    <string name="overdue">Überfällig</string>
+    <string name="rbDays_Day">Tag</string>
+    <string name="Dialog_PremiumAd_Descreption">Lieber Primelistnutzer! Du kannst eine begrenzte Anzahl an Aufgaben anlegen, bis deine Primelist-Premium Testphase endet. Danach kannst du dir für einmalige 1,79 € dauerhaft Primelist-Premium sichern und Primelist im vollen Funktionsumfang nutzen! Alternativ kannst du die kostenlose Primelist-Basic Version nutzen.  Mit dem Kauf der Premiumversion erhältst du nicht nur hilfreiche und wohl-durchdachte Features, sondern förderst gleichzeitig die Weiterentwicklung von Primelist. Da wir weder deine Daten verkaufen, noch Werbung schalten, sind wir auf den guten alten Handel angewiesen und bieten gute Qualität für einen angemessenen Preis :)  Herzliche Grüße, dein Team von MindGear Studios!</string>
+    <string name="Dialog_PremiumAd_Title">Hol dir jetzt dauerhaft Primelist Premium</string>
+    <string name="Toast_youHavePremium">Herzlichen Glückwunsch, Du bist ein Primelist Premium Nutzer!</string>
+    <string name="dialog_getPremium_Description_Deaktiviert">Lieber Primelistnutzer! Diese Funktion steht dir in der kostenlosen Primelist-Basic Version nicht zur Verfügung. Du kannst dir aber für einmalige 1,79 € dauerhaft Primelist-Premium sichern und Primelist wieder im vollen Funktionsumfang nutzen!  Mit dem Kauf der Premiumversion erhältst du nicht nur hilfreiche und wohl-durchdachte Features, sondern förderst gleichzeitig die Weiterentwicklung von Primelist. Herzliche Grüße, dein Team von MindGear Studios!</string>
+    <string name="dialog_getPremium_Title_Deaktiviert">Deaktiviert - Hol dir die Premium Version!</string>
+    <string name="dialog_premiumOver_description">Lieber Primelistnutzer! Deine kostenlose Primelist-Premium Testphase ist beendet. Du nutzt jetzt die kostenlose Primelist-Basic Version. Du kannst dir aber für einmalige 1,79 € dauerhaft Primelist-Premium sichern und Primelist wieder im vollen Funktionsumfang nutzen!  Mit dem Kauf der Premiumversion erhältst du nicht nur hilfreiche und wohl-durchdachte Features, sondern förderst gleichzeitig die Weiterentwicklung von Primelist. Herzliche Grüße, dein Team von MindGear Studios!</string>
+    <string name="dialog_premiumOver_title">Test Version abgelaufen</string>
+    <string name="later">Später!</string>
+    <string name="premium">Premium</string>
+    <string name="test_version_is_running_one">Lieber Primelistnutzer! Du kannst noch</string>
+    <string name="test_version_is_running_two">Aufgaben anlegen, bis deine Primelist-Premium Testphase endet. Danach kannst du dir für einmalige 1,79 € dauerhaft Primelist-Premium sichern und Primelist im vollen Funktionsumfang nutzen!</string>
+    <string name="test_version_is_running_title">Wichtiger Hinweis</string>
+
+    <string name="appWidgetTitel">Fällige Aufgaben - Primelist</string>
+    <string name="appWidgetNoData">Gute Arbeit - Keine fälligen Aufgaben</string>
+
+    <string name="test_version_is_running">Deine Testversion läuft bald aus!</string>
+
+    <!-- Dialog - Werbung für RocketPlan -->
+    <string name="dialog_rocketplan_title">Rocketplan - Zeit für Neues!</string>
+    <string name="dialog_rocketplan_text">Tchüss Primelist und Hallo Rocketplan. Ich habe eine neue App entwickelt, um euch mehr Funktionalität zu ermöglichen! Ihr könnt Rocketplan ab sofort im Play-Store herunterladen! Das Beste dabei: Die App ist kostenlos und keiner von Euch muss sich irgendwo anmelden. \n\nIch wünsche euch viel Spaß mit der App und danke euch für Eure Treue! \n\n
+    Cheers, \n\n
+    Eric - MindGearStudios</string>
+    <string name="dialog_rocketplan_later">Später</string>
+    <string name="dialog_rocketplan_check">Anzeigen</string>
 
 </resources>

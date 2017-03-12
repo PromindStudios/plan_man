@@ -9,15 +9,17 @@
     <dimen name="absatz_4">32dp</dimen>
     <dimen name="textSize_micro">10sp</dimen>
     <dimen name="textSize_small">12sp</dimen>
+    <dimen name="textSize_small_medium">14sp</dimen>
     <dimen name="textSize_medium">15sp</dimen>
     <dimen name="textSize_big">18sp</dimen>
     <dimen name="textSize_huge">24sp</dimen>
-    <dimen name="item_height">75dp</dimen>
+    <dimen name="item_height">63dp</dimen>
     <dimen name="teilaufgabe_height">40dp</dimen>
-    <dimen name="teilaufgabe_titel_abstand">8dp</dimen>
+    <dimen name="teilaufgabe_titel_abstand">12dp</dimen>
     <dimen name="statusBar_height">1px</dimen>
     <dimen name="heightHeader_element">80dp</dimen>
     <dimen name="widthHeader_big_element">240dp</dimen>
     <dimen name="widthHeader_small_element">80dp</dimen>
-    <integer name="LenghtEditText">20</integer>
+    <integer name="LenghtEditText">18</integer>
+    <integer name="LenghtEditTextTitle">30</integer>
 </resources>

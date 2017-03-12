@@ -16,7 +16,7 @@ public class BootBroadcastReceiver extends BroadcastReceiver {
         SharedPreferences settings = context.getSharedPreferences(Constants.SHARED_PREFERENCES, 0);
         Boolean alarmActivated = settings.getBoolean(Constants.SP_ALARM_SET_BY_USER, true);
 
-        if (alarmActivated) {
+        if (!alarmActivated) {
             alarmSetter.cancelAlarm(context);
 
         } else {

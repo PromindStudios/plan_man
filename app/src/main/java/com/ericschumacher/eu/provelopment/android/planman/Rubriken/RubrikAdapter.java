@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ericschumacher.eu.provelopment.android.planman.Activities.Main;
 import com.ericschumacher.eu.provelopment.android.planman.Aufgaben.Aufgabe;
@@ -21,7 +20,6 @@ import com.ericschumacher.eu.provelopment.android.planman.R;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by eric on 19.06.2015.
@@ -127,7 +125,8 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
             holder.ibDeadline.setVisibility(View.VISIBLE);
             holder.ibDeadline.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_deadline_eins));
             holder.tvDeadlineDays.setVisibility(View.VISIBLE);
-            holder.tvDeadlineDays.setText("!");
+            //holder.tvDeadlineDays.setText("!");
+            holder.tvDeadlineDays.setVisibility(View.INVISIBLE);
             //holder.title.setTextColor(context.getResources().getColor(R.color.Importance_one));
 
         } else {
@@ -135,7 +134,15 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
             holder.tvDeadlineDays.setVisibility(View.INVISIBLE);
             //holder.title.setTextColor(context.getResources().getColor(R.color.colorPrimaryText));
         }
-        holder.ibPrioritaet.setVisibility(View.INVISIBLE);
+
+        /*
+        if (rubrik.isConnected()) {
+            holder.ibConnection.setVisibility(View.VISIBLE);
+        } else {
+            holder.ibConnection.setVisibility(View.INVISIBLE);
+        }
+        */
+        holder.ibConnection.setVisibility(View.INVISIBLE);
 
         /*
         if (hasDeadline) {
@@ -163,6 +170,16 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
 
 
         holder.llTitel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //mRubrikItemListener.Selected(rubrik.getId());
+                mRubrikAdapter_listener.onRubrikItemSelected(rubrik.getId());
+
+            }
+        });
+
+        holder.ibDeadline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -209,6 +226,8 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
 
 
         });
+
+
     }
 
     @Override
@@ -221,17 +240,18 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
 
         TextView title;
         TextView tvCount_Aufgaben;
-        ImageButton ibPrioritaet;
+        ImageButton ibConnection;
         ImageButton ibDeadline;
         LinearLayout llTitel;
         TextView tvDeadlineDays;
+
 
         public myViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.tvRubrikTitle);
             tvCount_Aufgaben = (TextView) itemView.findViewById(R.id.tvRubrik_Aufgaben_Anzahl);
             tvDeadlineDays = (TextView) itemView.findViewById(R.id.tvDeadlineDays_Rubrik);
-            ibPrioritaet = (ImageButton) itemView.findViewById(R.id.ibPrioritaet_Rubrik);
+            ibConnection = (ImageButton) itemView.findViewById(R.id.ibConnected);
             ibDeadline = (ImageButton) itemView.findViewById(R.id.ibDeadline_Indicator_Rubrik);
             llTitel = (LinearLayout) itemView.findViewById(R.id.llRubrik_Titel);
 
@@ -252,6 +272,8 @@ public class RubrikAdapter extends RecyclerView.Adapter<RubrikAdapter.myViewHold
         public void onMoveUp(int position);
 
         public void onMoveDown(int position);
+
+        public void onLoadRubrikToServer(UUID uuid);
     }
 
     public interface RubrikAdapter_Listener {

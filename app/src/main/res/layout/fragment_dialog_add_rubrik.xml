@@ -6,6 +6,7 @@
 
     <TextView
         style="@style/Text_View_Dialog_Title"
+        android:id="@+id/dialog_title"
         android:text="@string/dialog_add_rubrik_title"/>
 
     <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText

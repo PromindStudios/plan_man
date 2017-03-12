@@ -7,6 +7,7 @@
 
     <TextView
         style="@style/Text_View_Dialog_Title"
+        android:id="@+id/dialog_title"
         android:text="@string/dialog_numberpicker_title"/>
 
     <NumberPicker

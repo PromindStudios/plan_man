@@ -164,5 +164,54 @@
         <item name="android:tint">@color/Importance_two</item>
     </style>
 
+    <style name="Information_Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+    </style>
+
+    <style name="RadioButton_ColorTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:layout_marginBottom">@dimen/absatz_3</item>
+    </style>
+
+    <style name="TextView_ItemAufgabe_Untertitel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/textSize_small</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:maxLength">21</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:text">default</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="ImageView_ItemAufgabe_Untertitel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="TextView_GetPremium_Buttons">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">@dimen/textSize_medium</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+
+
 
 </resources>

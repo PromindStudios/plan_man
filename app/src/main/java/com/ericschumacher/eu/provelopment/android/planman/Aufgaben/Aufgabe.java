@@ -1,8 +1,11 @@
 package com.ericschumacher.eu.provelopment.android.planman.Aufgaben;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
+import com.ericschumacher.eu.provelopment.android.planman.HelperClasses.Constants;
+import com.ericschumacher.eu.provelopment.android.planman.Services.UpdateAufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben.Teilaufgabe;
 import com.ericschumacher.eu.provelopment.android.planman.Teilaufgaben.TeilaufgabenIntentJSONSerializer;
 
@@ -11,7 +14,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -64,7 +66,12 @@ public class Aufgabe {
     public Aufgabe(JSONObject json, Context context) throws JSONException {
         String Filename = "Default";
         mId = UUID.fromString(json.getString(JSON_ID));
-        mFilenameTeilaufgaben = json.getString(JSON_TEILAUFGABEN_FILENAME);
+        if (json.has(JSON_TEILAUFGABEN_FILENAME)) {
+            mFilenameTeilaufgaben = json.getString(JSON_TEILAUFGABEN_FILENAME);
+        } else {
+            mFilenameTeilaufgaben = UUID.randomUUID().toString().replaceAll("-", "") + ".json";
+        }
+
         if (json.has(JSON_TITLE)) {
             mTitle = json.getString(JSON_TITLE);
             Filename = mTitle + ".json";
@@ -87,19 +94,27 @@ public class Aufgabe {
         }
 
         // get Information for Deadline
-        mTag = json.getInt(JSON_TAG);
-        mMonat = json.getInt(JSON_MONAT);
-        mJahr = json.getInt(JSON_JAHR);
-        if (mTag >= 0) {
+        if (json.has(JSON_TAG)) {
 
-            mDeadline = Calendar.getInstance();
-            mDeadline.set(Calendar.DAY_OF_MONTH, mTag);
-            mDeadline.set(Calendar.MONTH, mMonat);
-            mDeadline.set(Calendar.YEAR, mJahr);
+            if (json.getInt(JSON_JAHR) > 2014) {
+                mTag = json.getInt(JSON_TAG);
+                mMonat = json.getInt(JSON_MONAT);
+                mJahr = json.getInt(JSON_JAHR);
+
+                mDeadline = Calendar.getInstance();
+                mDeadline.set(Calendar.DAY_OF_MONTH, mTag);
+                mDeadline.set(Calendar.MONTH, mMonat);
+                mDeadline.set(Calendar.YEAR, mJahr);
+
+            } else {
+                mDeadline = null;
+                Log.i("Deadline: ", "null_intern");
+            }
+
         } else {
             mDeadline = null;
+            Log.i("Deadline: ", "null");
         }
-
 
         mSerializer = new TeilaufgabenIntentJSONSerializer(context);
 
@@ -119,23 +134,27 @@ public class Aufgabe {
         JSONObject json = new JSONObject();
 
         if (mDeadline == null) {
+            /*
             mTag = -1;
             Log.i("Tag: ", Integer.toString(mTag));
             mMonat = -1;
             mJahr = -1;
+            */
         } else {
             mTag = mDeadline.get(Calendar.DAY_OF_MONTH);
             Log.i("Tag: ", Integer.toString(mTag));
             mMonat = mDeadline.get(Calendar.MONTH);
             mJahr = mDeadline.get(Calendar.YEAR);
+
+            json.put(JSON_TAG, mTag);
+            json.put(JSON_MONAT, mMonat);
+            json.put(JSON_JAHR, mJahr);
         }
 
         json.put(JSON_ID, mId.toString());
         json.put(JSON_TITLE, mTitle);
         json.put(JSON_NOTIZ, mNotiz);
-        json.put(JSON_TAG, mTag);
-        json.put(JSON_MONAT, mMonat);
-        json.put(JSON_JAHR, mJahr);
+
         json.put(JSON_TEILAUFGABEN_FILENAME, mFilenameTeilaufgaben);
         json.put(JSON_PRIORITAET, mPrioritaet);
         json.put(JSON_RUBRIKNAME, mRubrikName);
@@ -162,7 +181,7 @@ public class Aufgabe {
         return mNotiz;
     }
 
-    public void setNotiz(String notiz) {
+    public void setNotiz(String notiz, Boolean connnected) {
         mNotiz = notiz;
     }
 
@@ -199,6 +218,8 @@ public class Aufgabe {
 
     public void deleteTeilaufgabe(Teilaufgabe a) {
         mTeilaufgaben.remove(a);
+        // delete Teilaufgabe on Server!
+
 
     }
 
@@ -225,6 +246,12 @@ public class Aufgabe {
 
     public void setDeadline(Calendar deadline) {
         mDeadline = deadline;
+        if (deadline != null) {
+            Log.i("Calendar: ", deadline.toString());
+        } else {
+            Log.i("Calendar: ", "null");
+        }
+
     }
 
     public int getPrioritaet() {
