@@ -62,6 +62,7 @@ public class Dialog_Aufgabe_Check extends DialogFragment {
 
             }
         });
+        //
 
         ibClear.setOnClickListener(new View.OnClickListener() {
             @Override
