@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="vertical"
+              android:padding="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary_Primelist"
+        android:gravity="center"
+        android:id="@+id/tvDialog_title"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize_big"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/tvDialog_description"
+        android:textColor="@color/colorSecondaryText"
+        />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorDivider"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            style="@style/TextView_GetPremium_Buttons"
+            android:id="@+id/ibDialog_Premium_negative"
+            android:text="@string/later"
+            android:layout_weight="49"
+            />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/colorDivider"/>
+
+        <TextView
+            style="@style/TextView_GetPremium_Buttons"
+            android:id="@+id/ibDialog_Premium_positive"
+            android:text="@string/premium"
+            android:layout_weight="49"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary_Primelist"
+        android:paddingLeft="16dp"
+        android:paddingRight="8dp">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_home_white"
+            android:id="@+id/ibHomeAppWidget"
+            android:layout_alignParentRight="true"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:id="@+id/tvWidgetText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:text="@string/appWidgetTitel"
+            android:textColor="@color/white"
+            android:layout_toLeftOf="@id/ibHomeAppWidget"/>
+
+
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lvAppWidget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+
+        <TextView
+            android:id="@+id/appWidgetEmptyview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="@string/appWidgetNoData"
+            android:textColor="@color/colorSecondaryText"/>
+
+    </FrameLayout>
+
+</LinearLayout>

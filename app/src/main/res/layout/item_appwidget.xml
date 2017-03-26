@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_margin="0dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="@color/colorWhiteTransparent">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/flAppWidgetLeft"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_checkbox_lightorange_2"
+            android:background="@color/transparent"
+            android:id="@+id/ivDoneAppWidget"
+            />
+
+        <TextView
+            android:id="@+id/tvTeilaufgabenNumberAppWidget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="@dimen/textSize_small_medium"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="1/14"/>
+
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/flAppWidgetLeft"
+        android:layout_centerVertical="true"
+        android:id="@+id/llTextAppWidget"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Titel"
+            android:paddingLeft="8dp"
+            android:textSize="@dimen/textSize_medium"
+            android:textColor="@color/colorPrimaryText"
+            android:id="@+id/tvTitelAppWidget"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="4dp"
+                android:src="@drawable/ic_clock_small_red"
+                android:background="@color/transparent"
+                android:id="@+id/ivDeadlineAppWidget"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heute fällig"
+                android:paddingLeft="2dp"
+                android:textSize="@dimen/textSize_small"
+                android:id="@+id/tvDeadlineAppWidget"
+                android:textColor="@color/colorSecondaryText"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   |   "
+                android:textSize="@dimen/textSize_small"
+                android:textColor="@color/colorSecondaryText"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvRubrikAppWdget"
+                android:textSize="@dimen/textSize_small"
+                android:textColor="@color/colorSecondaryText"
+                android:text="Privat"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivPriorityAppWidget"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_prioritaet_zwei"
+        android:layout_alignParentRight="true"
+        android:background="@color/transparent"/>
+
+
+
+</RelativeLayout>

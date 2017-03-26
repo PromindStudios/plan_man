@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    style="@style/Linear_Layout_Dialog"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        style="@style/Text_View_Dialog_Title"
+        android:id="@+id/dialog_title"
+        android:text="@string/dialog_connect_title"/>
+
+    <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+        android:id="@+id/etDialog_EnterId"
+        android:maxLength="5"
+        style="@style/Edit_Text_Dialog"
+        android:inputType="number"
+        android:hint="@string/Dialog_EditText_userId"/>
+
+    <com.ericschumacher.eu.provelopment.android.planman.HelperClasses.ActionEditText
+        android:id="@+id/etDialog_EnterKey"
+        android:maxLength="5"
+        style="@style/Edit_Text_Dialog"
+        android:inputType="number"
+        android:hint="@string/Dialog_EditText_userKey"/>
+
+    <include
+        layout="@layout/divider_1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageButton
+            android:id="@+id/ibDialog_Connect_Clear"
+            style="@style/Image_Button_Dialog_negative"
+            android:layout_weight="1"
+
+            />
+        <ImageButton
+            android:id="@+id/ibDialog_Connect_Save"
+            style="@style/Image_Button_Dialog_positive"
+            android:layout_weight="1"
+
+            />
+    </LinearLayout>
+</LinearLayout>

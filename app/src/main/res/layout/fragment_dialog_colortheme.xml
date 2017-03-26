@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout style="@style/Linear_Layout_Dialog"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <TextView
+        style="@style/Text_View_Dialog_Title"
+        android:id="@+id/dialog_title"
+        android:text="@string/colorTheme_Title"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgColorTheme">
+
+        <RadioButton
+            android:id="@+id/rbColorPrimelist"
+            android:layout_marginTop="@dimen/absatz_3"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_Primelist"
+            android:text="@string/Color_Primelist"/>
+
+        <RadioButton
+            android:id="@+id/rbColorExecutive"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_Executive"
+            android:text="@string/Color_Executive"/>
+
+        <RadioButton
+            android:id="@+id/rbColorOcean"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_Ocean"
+            android:text="@string/Color_Ocean"/>
+
+        <RadioButton
+            android:id="@+id/rbColorRoyal"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_Royal"
+            android:text="@string/Color_Royal"/>
+
+        <RadioButton
+            android:id="@+id/rbColorCandy"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_Candy"
+            android:text="@string/Color_Candy"/>
+
+        <RadioButton
+            android:id="@+id/rbColorGreenAlley"
+            style="@style/RadioButton_ColorTheme"
+            android:buttonTint="@color/colorPrimary_GreenAlley"
+            android:text="@string/Color_GreenAlley"/>
+
+    </RadioGroup>
+
+    <include
+        layout="@layout/divider_1px"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        />
+
+        <ImageButton
+            android:id="@+id/ibDialog_ColorTheme_Save"
+            style="@style/Image_Button_Dialog_positive"
+            android:layout_weight="1"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>
