@@ -86,7 +86,7 @@ public class Main extends AppCompatActivity implements Dialog_Rubrik_Add.DialogL
     UUID rubrikId;
     Rubrik mRubrik;
     RubrikLab mRubrikLab;
-    private ArrayList<Aufgabe> mAufgaben = new ArrayList<Aufgabe>();
+    private ArrayList<Aufgabe> mAufgaben = new ArrayList<Aufgabe>();      // lies mich
     private ArrayList<Aufgabe> mAlleAufgaben = new ArrayList<Aufgabe>();
     private String FILENAME;
     private String mFilename_Aufgaben;
