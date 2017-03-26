@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="length_update_priorityUP_dateIconLongClick">400</integer>
+    <integer name="test_version_tasks">31</integer>
+</resources>
